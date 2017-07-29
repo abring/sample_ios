@@ -24,12 +24,12 @@ end
 ```
 
 ## Usage
-```
+```swift
 import Abring
 ```
 
 Config the UI in the `Appdelegate.swift` file
-```
+```swift
 ABAppConfig.name = "your App Id"
 ABAppConfig.font = //Customized Font
 ABAppConfig.tintColor //Your app tint color
