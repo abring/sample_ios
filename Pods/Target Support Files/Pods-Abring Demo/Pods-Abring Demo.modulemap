@@ -1,0 +1,6 @@
+framework module Pods_Abring_Demo {
+  umbrella header "Pods-Abring Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}

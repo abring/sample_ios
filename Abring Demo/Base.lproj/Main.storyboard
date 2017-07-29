@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="WebYekan.ttf">
+            <string>WebYekan</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Abring_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="DI2-kf-8kW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldG-Ca-GQW">
+                                <rect key="frame" x="117" y="563" width="140" height="34"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.89819670376712324" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="g8C-7h-wFn"/>
+                                    <constraint firstAttribute="height" constant="34" id="iQY-gS-zWo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WebYekan" family="Web Yekan" pointSize="16"/>
+                                <state key="normal" title="ورود به حساب"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="tpj-bq-eiV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="توضیحات" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzF-88-um0">
+                                <rect key="frame" x="26" y="622" width="323" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ilX-Gt-DLh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="WebYekan" family="Web Yekan" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SzF-88-um0" secondAttribute="trailing" constant="10" id="5F7-Pu-dgM"/>
+                            <constraint firstItem="ldG-Ca-GQW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EuK-cm-Jpl"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SzF-88-um0" secondAttribute="bottom" constant="25" id="QT4-eW-aHR"/>
+                            <constraint firstItem="DI2-kf-8kW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ufe-f8-n87"/>
+                            <constraint firstItem="SzF-88-um0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Xbd-8G-kE6"/>
+                            <constraint firstAttribute="trailing" secondItem="DI2-kf-8kW" secondAttribute="trailing" id="aLf-xO-URS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldG-Ca-GQW" secondAttribute="bottom" constant="70" id="ekd-RV-QUM"/>
+                            <constraint firstItem="DI2-kf-8kW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="h3O-OF-xvZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DI2-kf-8kW" secondAttribute="bottom" id="pcX-UB-MAc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertLabel" destination="SzF-88-um0" id="y7m-WU-jQs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg" width="750" height="1334"/>
+    </resources>
+</document>

@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16CD04C21F2C8463009BAEE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */; };
+		16CD04C41F2C8463009BAEE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04C31F2C8463009BAEE4 /* ViewController.swift */; };
+		16CD04C71F2C8463009BAEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04C51F2C8463009BAEE4 /* Main.storyboard */; };
+		16CD04C91F2C8463009BAEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04C81F2C8463009BAEE4 /* Assets.xcassets */; };
+		16CD04CC1F2C8463009BAEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */; };
+		16CD04D91F2C8491009BAEE4 /* ABConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */; };
+		16CD04DA1F2C8491009BAEE4 /* ABExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */; };
+		16CD04DB1F2C8491009BAEE4 /* ABLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */; };
+		16CD04DC1F2C8491009BAEE4 /* ABManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D61F2C8491009BAEE4 /* ABManager.swift */; };
+		16CD04DD1F2C8491009BAEE4 /* ABPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */; };
+		16CD04DE1F2C8491009BAEE4 /* AbringKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */; };
+		16CD04E11F2C8925009BAEE4 /* WebYekan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */; };
+		D5EE3C0E855474E5202255CD /* Pods_Abring_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		090E065157D728FAE0763A69 /* Pods-Abring Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abring Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo.release.xcconfig"; sourceTree = "<group>"; };
+		16CD04BE1F2C8463009BAEE4 /* Abring Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abring Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		16CD04C31F2C8463009BAEE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16CD04C61F2C8463009BAEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16CD04C81F2C8463009BAEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16CD04CB1F2C8463009BAEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		16CD04CD1F2C8463009BAEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABConfiguration.swift; sourceTree = "<group>"; };
+		16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABExtentions.swift; sourceTree = "<group>"; };
+		16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABLoginViewController.swift; sourceTree = "<group>"; };
+		16CD04D61F2C8491009BAEE4 /* ABManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABManager.swift; sourceTree = "<group>"; };
+		16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABPlayer.swift; sourceTree = "<group>"; };
+		16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AbringKit.bundle; sourceTree = "<group>"; };
+		16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WebYekan.ttf; sourceTree = "<group>"; };
+		3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abring_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81CD7F73F5B65A2C2A1A6B5A /* Pods-Abring Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abring Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16CD04BB1F2C8463009BAEE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5EE3C0E855474E5202255CD /* Pods_Abring_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16CD04B51F2C8463009BAEE4 = {
+			isa = PBXGroup;
+			children = (
+				16CD04C01F2C8463009BAEE4 /* Abring Demo */,
+				16CD04BF1F2C8463009BAEE4 /* Products */,
+				925D221809C23D0568DC5222 /* Pods */,
+				D956700CD714A4EF53F4F95B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		16CD04BF1F2C8463009BAEE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16CD04BE1F2C8463009BAEE4 /* Abring Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16CD04C01F2C8463009BAEE4 /* Abring Demo */ = {
+			isa = PBXGroup;
+			children = (
+				16CD04DF1F2C8496009BAEE4 /* Abring */,
+				16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */,
+				16CD04C31F2C8463009BAEE4 /* ViewController.swift */,
+				16CD04C51F2C8463009BAEE4 /* Main.storyboard */,
+				16CD04C81F2C8463009BAEE4 /* Assets.xcassets */,
+				16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */,
+				16CD04CD1F2C8463009BAEE4 /* Info.plist */,
+				16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */,
+			);
+			path = "Abring Demo";
+			sourceTree = "<group>";
+		};
+		16CD04DF1F2C8496009BAEE4 /* Abring */ = {
+			isa = PBXGroup;
+			children = (
+				16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */,
+				16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */,
+				16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */,
+				16CD04D61F2C8491009BAEE4 /* ABManager.swift */,
+				16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */,
+				16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */,
+			);
+			name = Abring;
+			sourceTree = "<group>";
+		};
+		925D221809C23D0568DC5222 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81CD7F73F5B65A2C2A1A6B5A /* Pods-Abring Demo.debug.xcconfig */,
+				090E065157D728FAE0763A69 /* Pods-Abring Demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D956700CD714A4EF53F4F95B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16CD04BD1F2C8463009BAEE4 /* Abring Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16CD04D01F2C8463009BAEE4 /* Build configuration list for PBXNativeTarget "Abring Demo" */;
+			buildPhases = (
+				D0AC40C03BFEEED8C84B5002 /* [CP] Check Pods Manifest.lock */,
+				16CD04BA1F2C8463009BAEE4 /* Sources */,
+				16CD04BB1F2C8463009BAEE4 /* Frameworks */,
+				16CD04BC1F2C8463009BAEE4 /* Resources */,
+				B65748C25ABDF83897215257 /* [CP] Embed Pods Frameworks */,
+				3BA099E6460D5768FD8B43CA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Abring Demo";
+			productName = "Abring Demo";
+			productReference = 16CD04BE1F2C8463009BAEE4 /* Abring Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16CD04B61F2C8463009BAEE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = AsemanLTD;
+				TargetAttributes = {
+					16CD04BD1F2C8463009BAEE4 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = EWB6LH7BNY;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 16CD04B91F2C8463009BAEE4 /* Build configuration list for PBXProject "Abring Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16CD04B51F2C8463009BAEE4;
+			productRefGroup = 16CD04BF1F2C8463009BAEE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16CD04BD1F2C8463009BAEE4 /* Abring Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16CD04BC1F2C8463009BAEE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16CD04CC1F2C8463009BAEE4 /* LaunchScreen.storyboard in Resources */,
+				16CD04C91F2C8463009BAEE4 /* Assets.xcassets in Resources */,
+				16CD04C71F2C8463009BAEE4 /* Main.storyboard in Resources */,
+				16CD04DE1F2C8491009BAEE4 /* AbringKit.bundle in Resources */,
+				16CD04E11F2C8925009BAEE4 /* WebYekan.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BA099E6460D5768FD8B43CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B65748C25ABDF83897215257 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0AC40C03BFEEED8C84B5002 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16CD04BA1F2C8463009BAEE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16CD04DC1F2C8491009BAEE4 /* ABManager.swift in Sources */,
+				16CD04DB1F2C8491009BAEE4 /* ABLoginViewController.swift in Sources */,
+				16CD04D91F2C8491009BAEE4 /* ABConfiguration.swift in Sources */,
+				16CD04DA1F2C8491009BAEE4 /* ABExtentions.swift in Sources */,
+				16CD04C41F2C8463009BAEE4 /* ViewController.swift in Sources */,
+				16CD04DD1F2C8491009BAEE4 /* ABPlayer.swift in Sources */,
+				16CD04C21F2C8463009BAEE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		16CD04C51F2C8463009BAEE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CD04C61F2C8463009BAEE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16CD04CB1F2C8463009BAEE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16CD04CE1F2C8463009BAEE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16CD04CF1F2C8463009BAEE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16CD04D11F2C8463009BAEE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81CD7F73F5B65A2C2A1A6B5A /* Pods-Abring Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EWB6LH7BNY;
+				INFOPLIST_FILE = "Abring Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ir.asemanltd.Abring-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		16CD04D21F2C8463009BAEE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 090E065157D728FAE0763A69 /* Pods-Abring Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = EWB6LH7BNY;
+				INFOPLIST_FILE = "Abring Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ir.asemanltd.Abring-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16CD04B91F2C8463009BAEE4 /* Build configuration list for PBXProject "Abring Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CD04CE1F2C8463009BAEE4 /* Debug */,
+				16CD04CF1F2C8463009BAEE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16CD04D01F2C8463009BAEE4 /* Build configuration list for PBXNativeTarget "Abring Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16CD04D11F2C8463009BAEE4 /* Debug */,
+				16CD04D21F2C8463009BAEE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16CD04B61F2C8463009BAEE4 /* Project object */;
+}
