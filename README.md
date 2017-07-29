@@ -35,3 +35,14 @@ ABAppConfig.font = //Customized Font
 ABAppConfig.tintColor //Your app tint color
 ...
 ```
+
+and finally add this line of code to present login
+```swift
+presentLogin(style: .LightBlurBackground, delegate: self)
+```
+
+Don't forget to implement delegate methods
+```swift
+func userDismissScreen()
+func userDidLogin(_ player: ABPlayer)
+```
