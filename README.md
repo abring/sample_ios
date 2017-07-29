@@ -1,3 +1,10 @@
+[![License](https://img.shields.io/cocoapods/l/TransitionButton.svg?style=flat)](http://cocoapods.org/pods/TransitionButton)
+[![Platform](https://img.shields.io/cocoapods/p/TransitionButton.svg?style=flat)](http://cocoapods.org/pods/TransitionButton)
+
+## Preview
+<img src="http://s9.picofile.com/file/8301979300/abring_ios.jpg" height="527">
+
+## About
 Abring makes it easy to implement login to your app.
 
 ## There are 3 ways you can use Abring
@@ -46,3 +53,6 @@ Don't forget to implement delegate methods
 func userDismissScreen()
 func userDidLogin(_ player: ABPlayer)
 ```
+
+## License
+`Abring` is available under the MIT license. See the LICENSE file for more info.
