@@ -7,11 +7,6 @@
 ## About
 Abring makes it easy to implement login to your app.
 
-## There are 3 ways you can use Abring
-- Ignore this library and use HTTP APIs
-- Using it by just SDK APIs (UI is by your own)
-- Let SDK handle the UI for you 
-
 ## Requirements
 - iOS 10.0+
 - XCode 8.0
@@ -31,27 +26,49 @@ end
 ```
 
 ## Usage
+Go to Abring.ir website and add an app in your panel.
+You must set project name in ABAppConfig later in your project.
+
+Type these to the `Appdelegate.swift` file:
 ```swift
 import Abring
 ```
-
-Config the UI in the `Appdelegate.swift` file
 ```swift
 ABAppConfig.name = "your App Id"
-ABAppConfig.font = //Customized Font
-ABAppConfig.tintColor //Your app tint color
-...
 ```
 
-and finally add this line of code to present login
+The login viewcontroller is highly customizable:
 ```swift
-presentLogin(style: .LightBlurBackground, delegate: self)
+ABAppConfig.font = UIFont.systemFont(ofSize: 14) //or your own font
+ABAppConfig.tintColor = UIColor.cyan
+ABAppConfig.labelsColor = UIColor.gray
+ABAppConfig.mainButton = UIButton() // your custom UIButton
+ABAppConfig.texts.inputPhoneText = "input phone title"
+ABAppConfig.texts.inputCodeText = "input code title"
+ABAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle = "Send Code"
+ABAppConfig.buttonsTitles.loginConfirmCodeButtonTitle = "Done"
+
+// you can customize textfields and their placeholders too.
 ```
 
-Don't forget to implement delegate methods
+and finally add this line of code in your viewcontroller to present login
+```swift
+presentLogin(style: .lightBlurBackground, delegate: self)
+```
+
+Don't forget to implement `AbLoginDelegate` methods:
+
 ```swift
 func userDismissScreen()
 func userDidLogin(_ player: ABPlayer)
+```
+
+## Still want more flexability?
+You can ignore our UI and implement your own UI.
+Just use these methods when you need them:
+```swift
+ABPlayer.requestRegisterCode(phoneNumber: String, completion: LoginCompletionBlock) {}
+ABPlayer.verifyRegisterCode(phoneNumber: String, code: String, completion: @escaping (_ success: Bool, _ player: ABPlayer?, _ errorType: ABErrorType?)
 ```
 
 ## License
