@@ -2,7 +2,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/TransitionButton.svg?style=flat)](https://github.com/abring/sample_ios)
 
 ## Preview
-<img src="http://s9.picofile.com/file/8301979300/abring_ios.jpg" height="527">
+<img src="http://s6.uplod.ir/i/00891/9disyu31zafh.jpg" height="527">
 
 ## About
 Abring makes it easy to implement login to your app.
