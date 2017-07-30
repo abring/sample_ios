@@ -14,23 +14,23 @@ protocol AbLoginDelegate {
 }
 
 enum LoginViewStyle {
-    case LightBlurBackground
-    case ExtraLightBlurBackground
-    case DarkBlurBackground
-    case DarkenBackground
-    case LightenBackground
+    case lightBlurBackground
+    case extraLightBlurBackground
+    case darkBlurBackground
+    case darkenBackground
+    case lightenBackground
 }
 
 enum LoginType {
-    case JustPhone
-    case JustUserPass
-    case Both
+    case justPhone
+    case justUserPass
+    case both
 }
 
 class ABLoginViewController: UIViewController {
 
     
-    var style : LoginViewStyle = .DarkenBackground
+    var style : LoginViewStyle = .darkenBackground
     
     private var dismissButton : UIButton!
     private var mainScrollView : UIScrollView!
@@ -109,29 +109,29 @@ class ABLoginViewController: UIViewController {
     private func presentAnimation() {
         
         switch style {
-        case .DarkenBackground:
+        case .darkenBackground:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor(white: 0, alpha: 0.4)
             })
-        case .LightenBackground:
+        case .lightenBackground:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor(white: 1, alpha: 0.4)
             })
-        case .LightBlurBackground:
+        case .lightBlurBackground:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
             UIView.animate(withDuration: 0.3 , animations: { 
                 self.visualEffectBlurView.effect = UIBlurEffect(style: .light)
             })
-        case .ExtraLightBlurBackground:
+        case .extraLightBlurBackground:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
             UIView.animate(withDuration: 0.3 , animations: {
                 self.visualEffectBlurView.effect = UIBlurEffect(style: .extraLight)
             })
-        case .DarkBlurBackground:
+        case .darkBlurBackground:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
@@ -150,11 +150,11 @@ class ABLoginViewController: UIViewController {
     private func dismissAnimation(completion : @escaping () -> Void) {
         
         switch style {
-        case .DarkenBackground , .LightenBackground:
+        case .darkenBackground , .lightenBackground:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor.clear
             })
-        case .LightBlurBackground , .ExtraLightBlurBackground , .DarkBlurBackground:
+        case .lightBlurBackground , .extraLightBlurBackground , .darkBlurBackground:
             UIView.animate(withDuration: 0.2 , animations: {
                 self.visualEffectBlurView.effect = nil
             })

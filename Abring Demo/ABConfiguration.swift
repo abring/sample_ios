@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 
-public let ABAppConfig = ABConfiguration.sharedInstance
+public let ABAppConfig = ABConfiguration.shared
 
 
 public class ABConfiguration {
   
     
-    public static let sharedInstance = ABConfiguration()
+    public static let shared = ABConfiguration()
     
     
     public var font : UIFont?

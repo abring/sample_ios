@@ -22,7 +22,7 @@ class ViewController: UIViewController , AbLoginDelegate {
     }
 
     @IBAction func buttonPressed() {
-        presentLogin(style: .LightBlurBackground, delegate: self)
+        presentLogin(style: .lightBlurBackground, delegate: self)
     }
     
     func userDidLogin(_ player: ABPlayer) {
