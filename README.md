@@ -1,5 +1,9 @@
-[![License](https://img.shields.io/cocoapods/l/TransitionButton.svg?style=flat)](https://github.com/abring/sample_ios)
+[![pod](https://img.shields.io/badge/pod-v0.3.0-blue.svg)](https://github.com/abring/sample_ios)
 [![Platform](https://img.shields.io/cocoapods/p/TransitionButton.svg?style=flat)](https://github.com/abring/sample_ios)
+[![language](https://img.shields.io/badge/language-swift-orange.svg)](https://github.com/abring/sample_ios)
+[![License](https://img.shields.io/cocoapods/l/TransitionButton.svg?style=flat)](https://github.com/abring/sample_ios)
+
+
 
 ## Preview
 <img src="http://s6.uplod.ir/i/00891/9disyu31zafh.jpg" height="527">
