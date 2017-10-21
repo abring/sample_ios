@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol AbLoginDelegate {
+@objc protocol AbLoginDelegate {
     func userDidLogin(_ player : ABPlayer)
-    func userDismissScreen()
+    @objc optional func userDismissScreen()
 }
 
 enum LoginViewStyle {
@@ -29,7 +29,22 @@ enum LoginType {
 
 class ABLoginViewController: UIViewController {
 
-    
+    private var inset : CGFloat = 10
+    var isFullScreen = false {
+        didSet {
+            if isFullScreen == true {
+                loginView.transform = .identity
+                loginView.alpha = 1
+                loginView.backgroundColor = .clear
+                dismissButton.removeFromSuperview()
+                view.backgroundColor = UIColor.white
+                loginView.frame.origin.x = 0
+                loginView.frame.size.width = view.frame.size.width
+                inset = 40
+                refreshLayout()
+            }
+        }
+    }
     var style : LoginViewStyle = .darkenBackground
     
     private var dismissButton : UIButton!
@@ -47,6 +62,9 @@ class ABLoginViewController: UIViewController {
     private var confirmPhoneBtn = UIButton()
     private var confirmCodeBtn = UIButton()
     private var otherWaysBtn = UIButton()
+    private var backBtn = UIButton()
+    private var inputPhoneLabel : UILabel!
+    private var inputCodeLabel : UILabel!
     
 
     var delegate : AbLoginDelegate?
@@ -57,6 +75,7 @@ class ABLoginViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        
 
     }
     
@@ -64,7 +83,11 @@ class ABLoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        presentAnimation()
+        if !isFullScreen {
+            presentAnimation()
+        } else {
+            
+        }
         
         
     }
@@ -79,6 +102,7 @@ class ABLoginViewController: UIViewController {
     convenience init() {
         self.init(nibName: nil, bundle: nil)
         
+
         view.isOpaque = false
         view.backgroundColor = UIColor.clear
         
@@ -148,7 +172,6 @@ class ABLoginViewController: UIViewController {
     }
     
     private func dismissAnimation(completion : @escaping () -> Void) {
-        
         switch style {
         case .darkenBackground , .lightenBackground:
             UIView.animate(withDuration: 0.3, animations: {
@@ -237,7 +260,7 @@ class ABLoginViewController: UIViewController {
 //        innerScrollView.addSubview(otherWaysBtn)
         
         
-        let backBtn = UIButton(type: .system)
+        backBtn = UIButton(type: .system)
         backBtn.frame = CGRect(x: loginView.bounds.width, y: 4, width: 30, height: 30)
         let img = UIImage(named: "AbringKit.bundle/images/back", in: nil, compatibleWith: nil) ?? UIImage()
         img.withRenderingMode(.alwaysTemplate)
@@ -249,22 +272,22 @@ class ABLoginViewController: UIViewController {
     }
     
     private func setupLabels() {
-        let inputPhoneLabel = UILabel(frame: CGRect(x: 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
+        inputPhoneLabel = UILabel(frame: CGRect(x: 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
         inputPhoneLabel.text = ABAppConfig.texts.inputPhoneText
         innerScrollView.addSubview(inputPhoneLabel)
         
-        let inputCodeLabel = UILabel(frame: CGRect(x: loginView.bounds.size.width + 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
+        inputCodeLabel = UILabel(frame: CGRect(x: loginView.bounds.size.width + 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
         inputCodeLabel.text = ABAppConfig.texts.inputCodeText
         innerScrollView.addSubview(inputCodeLabel)
         
         for label in [inputCodeLabel , inputPhoneLabel] {
             if ABAppConfig.font != nil {
-                label.font = UIFont(name: ABAppConfig.font!.fontName, size: ABAppConfig.font!.pointSize - 2)
+                label?.font = UIFont(name: ABAppConfig.font!.fontName, size: ABAppConfig.font!.pointSize - 2)
             }
             
-            label.numberOfLines = 3
-            label.textColor = ABAppConfig.labelsColor
-            label.textAlignment = .center
+            label?.numberOfLines = 3
+            label?.textColor = ABAppConfig.labelsColor
+            label?.textAlignment = .center
         }
         
 
@@ -293,7 +316,6 @@ class ABLoginViewController: UIViewController {
         dismissButton.setTitle(nil, for: .normal)
         dismissButton.addTarget(self, action: #selector(dismissAction), for: .touchDown)
         
-        
         view.addSubview(dismissButton)
         view.bringSubview(toFront: dismissButton)
     }
@@ -310,9 +332,23 @@ class ABLoginViewController: UIViewController {
         view.bringSubview(toFront: loginView)
         loginView.alpha = 0
         loginView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+       
+    }
     
+    
+    private func refreshLayout() {
+        innerScrollView.frame = loginView.bounds
+        innerScrollView.contentSize = CGSize(width: loginView.bounds.size.width * 2 , height: loginView.bounds.size.height)
         
+        inputPhoneLabel.frame = CGRect(x: inset, y: 10, width: loginView.bounds.size.width - (inset * 2) , height: 80)
+        inputCodeLabel.frame = CGRect(x: loginView.bounds.size.width + inset, y: 10, width: loginView.bounds.size.width - inset * 2 , height: 80)
         
+        confirmPhoneBtn.frame = CGRect(x: inset + 20, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - (inset * 2 + 40) , height: 34)
+        confirmCodeBtn.frame = CGRect(x: loginView.bounds.size.width + inset + 20, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - (inset * 2 + 40) , height: 34)
+        backBtn.frame = CGRect(x: loginView.bounds.width, y: 4, width: 30, height: 30)
+        
+        phoneTf.frame = CGRect(x: inset + 20, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - (inset * 2 + 40), height: 30)
+        codeTf.frame = CGRect(x: loginView.bounds.size.width + inset + 20, y: loginView.bounds.size.height / 2 - 25 , width: loginView.bounds.size.width - (inset * 2 + 40) , height: 30)
     }
     
     //MARK: button selectors
@@ -361,10 +397,15 @@ class ABLoginViewController: UIViewController {
                 self.confirmCodeBtn.isEnabled = true
                 if success {
                     self.view.endEditing(true)
-                    self.dismissAnimation {
-                        self.dismiss(animated: false, completion: nil)
+                    if self.isFullScreen {
                         self.delegate?.userDidLogin(player!)
+                    } else {
+                        self.dismissAnimation {
+                            self.dismiss(animated: false, completion: nil)
+                            self.delegate?.userDidLogin(player!)
+                        }
                     }
+                    
                 } else {
                     self.loginView.showOverlayError(errorType!)
                 }
@@ -385,9 +426,10 @@ class ABLoginViewController: UIViewController {
     
     @objc private func dismissAction() {
         view.endEditing(true)
+        self.delegate?.userDismissScreen!()
         dismissAnimation {
             self.dismiss(animated: false, completion: nil)
-            self.delegate?.userDismissScreen()
+            
         }
     }
     

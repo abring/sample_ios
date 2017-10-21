@@ -12,18 +12,13 @@
 		16CD04C71F2C8463009BAEE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04C51F2C8463009BAEE4 /* Main.storyboard */; };
 		16CD04C91F2C8463009BAEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04C81F2C8463009BAEE4 /* Assets.xcassets */; };
 		16CD04CC1F2C8463009BAEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */; };
-		16CD04D91F2C8491009BAEE4 /* ABConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */; };
-		16CD04DA1F2C8491009BAEE4 /* ABExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */; };
-		16CD04DB1F2C8491009BAEE4 /* ABLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */; };
-		16CD04DC1F2C8491009BAEE4 /* ABManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D61F2C8491009BAEE4 /* ABManager.swift */; };
-		16CD04DD1F2C8491009BAEE4 /* ABPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */; };
-		16CD04DE1F2C8491009BAEE4 /* AbringKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */; };
 		16CD04E11F2C8925009BAEE4 /* WebYekan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */; };
 		D5EE3C0E855474E5202255CD /* Pods_Abring_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		090E065157D728FAE0763A69 /* Pods-Abring Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abring Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo.release.xcconfig"; sourceTree = "<group>"; };
+		1634B0B01F2F432100102161 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		16CD04BE1F2C8463009BAEE4 /* Abring Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Abring Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16CD04C31F2C8463009BAEE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,12 +26,6 @@
 		16CD04C81F2C8463009BAEE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CD04CB1F2C8463009BAEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16CD04CD1F2C8463009BAEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABConfiguration.swift; sourceTree = "<group>"; };
-		16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABExtentions.swift; sourceTree = "<group>"; };
-		16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABLoginViewController.swift; sourceTree = "<group>"; };
-		16CD04D61F2C8491009BAEE4 /* ABManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABManager.swift; sourceTree = "<group>"; };
-		16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABPlayer.swift; sourceTree = "<group>"; };
-		16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AbringKit.bundle; sourceTree = "<group>"; };
 		16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WebYekan.ttf; sourceTree = "<group>"; };
 		3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abring_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CD7F73F5B65A2C2A1A6B5A /* Pods-Abring Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abring Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,7 +64,6 @@
 		16CD04C01F2C8463009BAEE4 /* Abring Demo */ = {
 			isa = PBXGroup;
 			children = (
-				16CD04DF1F2C8496009BAEE4 /* Abring */,
 				16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */,
 				16CD04C31F2C8463009BAEE4 /* ViewController.swift */,
 				16CD04C51F2C8463009BAEE4 /* Main.storyboard */,
@@ -83,21 +71,9 @@
 				16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */,
 				16CD04CD1F2C8463009BAEE4 /* Info.plist */,
 				16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */,
+				1634B0B01F2F432100102161 /* MyPlayground.playground */,
 			);
 			path = "Abring Demo";
-			sourceTree = "<group>";
-		};
-		16CD04DF1F2C8496009BAEE4 /* Abring */ = {
-			isa = PBXGroup;
-			children = (
-				16CD04D31F2C8491009BAEE4 /* ABConfiguration.swift */,
-				16CD04D41F2C8491009BAEE4 /* ABExtentions.swift */,
-				16CD04D51F2C8491009BAEE4 /* ABLoginViewController.swift */,
-				16CD04D61F2C8491009BAEE4 /* ABManager.swift */,
-				16CD04D71F2C8491009BAEE4 /* ABPlayer.swift */,
-				16CD04D81F2C8491009BAEE4 /* AbringKit.bundle */,
-			);
-			name = Abring;
 			sourceTree = "<group>";
 		};
 		925D221809C23D0568DC5222 /* Pods */ = {
@@ -183,7 +159,6 @@
 				16CD04CC1F2C8463009BAEE4 /* LaunchScreen.storyboard in Resources */,
 				16CD04C91F2C8463009BAEE4 /* Assets.xcassets in Resources */,
 				16CD04C71F2C8463009BAEE4 /* Main.storyboard in Resources */,
-				16CD04DE1F2C8491009BAEE4 /* AbringKit.bundle in Resources */,
 				16CD04E11F2C8925009BAEE4 /* WebYekan.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,9 +187,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -227,13 +207,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Abring Demo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -243,12 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16CD04DC1F2C8491009BAEE4 /* ABManager.swift in Sources */,
-				16CD04DB1F2C8491009BAEE4 /* ABLoginViewController.swift in Sources */,
-				16CD04D91F2C8491009BAEE4 /* ABConfiguration.swift in Sources */,
-				16CD04DA1F2C8491009BAEE4 /* ABExtentions.swift in Sources */,
 				16CD04C41F2C8463009BAEE4 /* ViewController.swift in Sources */,
-				16CD04DD1F2C8491009BAEE4 /* ABPlayer.swift in Sources */,
 				16CD04C21F2C8463009BAEE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

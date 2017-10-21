@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-enum ABErrorType {
+public enum ABErrorType {
     case invalidToken
     case serverError
     case noConnection
@@ -24,9 +24,9 @@ struct ABManager {
             "app": ABAppConfig.name!
         ]
         if tokenNeeded {
-            let token = ABPlayer.currentPlayer()?.token
+            let token = ABPlayer.current()?.token
             assert(token != nil, "Token is nil")
-            finalParameters["token"] = ABPlayer.currentPlayer()?.token!
+            finalParameters["token"] = ABPlayer.current()?.token!
         }
         if parameters != nil {
             for (key , value) in parameters! {
@@ -39,7 +39,7 @@ struct ABManager {
         }
         Alamofire.request(url ,
                           method: .post ,
-                          parameters: parameters ,
+                          parameters: finalParameters ,
                           encoding: URLEncoding.default).validate().responseJSON { response in
                             switch response.result {
                             case .success(let value):

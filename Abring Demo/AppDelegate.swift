@@ -18,8 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        ABAppConfig.name = "com.aseman.pouya"
+        ABAppConfig.name = "com.aseman.abringDemo"
         ABAppConfig.font = UIFont(name: "WebYekan", size: 14)
+        ABAppConfig.tintColor = UIColor.orange
+        ABAppConfig.playerIncludes = [.name , .mail , .sex]
+        
+    
+        
+//        loginIfNeeded(storyBoard: "Main", rootIdentifier: "root" , backgroundImage : UIImage(named: "login"))
+
         
         return true
     }

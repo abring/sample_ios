@@ -13,8 +13,20 @@ import UIKit
 public let ABAppConfig = ABConfiguration.shared
 
 
+public enum ABPlayerProperty : String {
+    case name = "نام"
+    case mobile = "شماره موبایل"
+    case sex = "جنیست"
+    case birth = "تاریخ تولد"
+    case mail = "پست الکترونیک"
+
+}
+
 public class ABConfiguration {
   
+    
+    public var playerIncludes : [ABPlayerProperty]?
+    public var playerHasAvatar = true
     
     public static let shared = ABConfiguration()
     
@@ -49,6 +61,8 @@ public class ButtonsTitles {
     var loginSendCodeToPhoneButtonTitle = "ارسال کد"
     var loginOtherWaysButtonTitle = "راه‌های دیگر"
     var loginConfirmCodeButtonTitle = "ورود به حساب"
+    var updateDownloadButtonTitle = "دریافت نسخه جدید"
+    var updateLaterButtonTitle = "بعدا دریافت میکنم"
 }
 
 public class Texts {
@@ -82,9 +96,37 @@ public class TextField : UITextField {
     
 }
 
+struct ABUtils {
+    static var topViewController: UIViewController?{
+        let keyWindow = UIApplication.shared.keyWindow
+        if keyWindow?.rootViewController == nil{
+            return keyWindow?.rootViewController
+        }
+        
+        var pointedViewController = keyWindow?.rootViewController
+        
+        while  pointedViewController?.presentedViewController != nil {
+            switch pointedViewController?.presentedViewController {
+            case let navagationController as UINavigationController:
+                pointedViewController = navagationController.viewControllers.last
+            case let tabBarController as UITabBarController:
+                pointedViewController = tabBarController.selectedViewController
+            default:
+                pointedViewController = pointedViewController?.presentedViewController
+            }
+        }
+        return pointedViewController
+        
+    }
+}
+
 struct WebserviceURL {
     static let requestCode = "http://ws.v3.abring.ir/index.php?r=player/mobile-register"
     static let resendCode = "http://ws.v3.abring.ir/index.php?r=player/mobile-resend-code"
     static let logout = "http://ws.v3.abring.ir/index.php?r=player/logout"
     static let verifyCode = "http://ws.v3.abring.ir/index.php?r=player/mobile-verify"
+    static let analyticSet = "http://ws.v3.abring.ir/index.php?r=analytic/set"
+    static let appGet = "http://ws.v3.abring.ir/index.php?r=app/get"
+    static let playerSet = "http://ws.v3.abring.ir/index.php?r=player/set"
+    static let playerGet = "http://ws.v3.abring.ir/index.php?r=player/get"
 }

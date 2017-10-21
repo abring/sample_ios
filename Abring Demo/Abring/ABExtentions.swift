@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 extension UIViewController {
     func presentLogin(style : LoginViewStyle , delegate: UIViewController) {
         let loginVc = ABLoginViewController()
@@ -18,6 +19,23 @@ extension UIViewController {
         self.present(loginVc, animated: false, completion: nil)
     }
 }
+
+extension AppDelegate {
+    func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
+        if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            let loginVc = ABFullScreenLoginViewController()
+            loginVc.backgroundColor = backgroundColor
+            loginVc.backgroundImage = backgroundImage
+            loginVc.identifier = rootIdentifier
+            loginVc.storyBoard = storyBoard
+            window?.rootViewController = loginVc
+            window?.makeKeyAndVisible()
+        }
+    }
+}
+
+
 
 extension UIView {
     func showOverlayError(_ errorType : ABErrorType) {
@@ -98,6 +116,20 @@ extension String {
         
         if final != nil{
             return "0\(final!)"
+        } else {
+            return nil
+        }
+    }
+    
+    func persianDateWith(format : String) -> String? {
+        let persianCal = Calendar(identifier: .persian)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "fa_IR")
+        formatter.calendar = persianCal
+        formatter.dateFormat = format
+        if let interval = Double(self) {
+            let date = Date(timeIntervalSince1970: interval)
+            return formatter.string(from: date)
         } else {
             return nil
         }

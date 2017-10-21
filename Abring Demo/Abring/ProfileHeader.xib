@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IQ1-hV-VoS" customClass="ProfileHeader" customModule="Abring_Demo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r5M-Ct-lbh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOz-G8-ZTq">
+                            <rect key="frame" x="147" y="66" width="80" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="4Ll-Mc-nlY"/>
+                                <constraint firstAttribute="width" constant="80" id="Za5-p9-L84"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="40"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReQ-94-00y">
+                            <rect key="frame" x="10" y="20" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Wqu-nF-p2U"/>
+                                <constraint firstAttribute="width" constant="50" id="p9Y-Bf-r6v"/>
+                            </constraints>
+                            <state key="normal" title="خروج"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLP-Dm-TPn" customClass="ABSwitchableButton" customModule="Abring_Demo" customModuleProvider="target">
+                            <rect key="frame" x="305" y="20" width="60" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="MDR-kT-5G1"/>
+                                <constraint firstAttribute="width" constant="60" id="tHK-7t-uT5"/>
+                            </constraints>
+                            <state key="normal" title="ویرایش"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="defaultTitle" value="ویرایش"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="editingTitle" value="ذخیره"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ny2-uu-xLS">
+                            <rect key="frame" x="24" y="154" width="327" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="jRz-df-cOI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="BWk-Sb-1hX">
+                            <rect key="frame" x="177" y="96" width="20" height="20"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.4631698132" green="0.81485348940000002" blue="0.2353205085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="nOz-G8-ZTq" firstAttribute="centerX" secondItem="r5M-Ct-lbh" secondAttribute="centerX" id="9J7-6z-K5q"/>
+                        <constraint firstAttribute="trailing" secondItem="YLP-Dm-TPn" secondAttribute="trailing" constant="10" id="EEw-Dm-tFF"/>
+                        <constraint firstItem="Ny2-uu-xLS" firstAttribute="leading" secondItem="r5M-Ct-lbh" secondAttribute="leading" constant="24" id="ExA-qR-inM"/>
+                        <constraint firstItem="nOz-G8-ZTq" firstAttribute="centerY" secondItem="r5M-Ct-lbh" secondAttribute="centerY" constant="6" id="FTy-Bt-lnj"/>
+                        <constraint firstAttribute="trailing" secondItem="Ny2-uu-xLS" secondAttribute="trailing" constant="24" id="JYy-og-yCf"/>
+                        <constraint firstItem="Ny2-uu-xLS" firstAttribute="top" secondItem="nOz-G8-ZTq" secondAttribute="bottom" constant="8" id="O7B-ba-8GS"/>
+                        <constraint firstItem="YLP-Dm-TPn" firstAttribute="top" secondItem="r5M-Ct-lbh" secondAttribute="top" constant="20" id="Za6-BD-MG3"/>
+                        <constraint firstItem="ReQ-94-00y" firstAttribute="leading" secondItem="r5M-Ct-lbh" secondAttribute="leading" constant="10" id="cE1-HA-81h"/>
+                        <constraint firstAttribute="height" constant="200" id="jsw-N0-ZVS"/>
+                        <constraint firstItem="ReQ-94-00y" firstAttribute="top" secondItem="r5M-Ct-lbh" secondAttribute="top" constant="20" id="oa4-Ad-shz"/>
+                        <constraint firstItem="BWk-Sb-1hX" firstAttribute="centerY" secondItem="nOz-G8-ZTq" secondAttribute="centerY" id="p5A-LP-ECc"/>
+                        <constraint firstItem="BWk-Sb-1hX" firstAttribute="centerX" secondItem="nOz-G8-ZTq" secondAttribute="centerX" id="y5f-Q9-ud5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="r5M-Ct-lbh" firstAttribute="leading" secondItem="IQ1-hV-VoS" secondAttribute="leading" id="CYf-rL-obX"/>
+                <constraint firstAttribute="trailing" secondItem="r5M-Ct-lbh" secondAttribute="trailing" id="WEh-1G-YpT"/>
+                <constraint firstAttribute="bottom" secondItem="r5M-Ct-lbh" secondAttribute="bottom" id="qWC-l8-q4l"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatarImageView" destination="nOz-G8-ZTq" id="kB9-Bh-MmO"/>
+                <outlet property="editButton" destination="YLP-Dm-TPn" id="a59-Kc-yfj"/>
+                <outlet property="headerHeightConstraint" destination="jsw-N0-ZVS" id="UqG-oQ-yUf"/>
+                <outlet property="loadActivity" destination="BWk-Sb-1hX" id="li2-s1-xKs"/>
+                <outlet property="logoutButton" destination="ReQ-94-00y" id="Fqj-QC-Vb1"/>
+                <outlet property="nameLabel" destination="Ny2-uu-xLS" id="9QB-9q-jhZ"/>
+            </connections>
+            <point key="canvasLocation" x="-59.5" y="283"/>
+        </view>
+    </objects>
+</document>

@@ -16,14 +16,29 @@ class ViewController: UIViewController , AbLoginDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        present(ABFullScreenLoginViewController() , animated: false, completion: nil)
         
         alertLabel.alpha = 0
+        
+
         
     }
 
     @IBAction func buttonPressed() {
-        presentLogin(style: .lightBlurBackground, delegate: self)
+        presentLogin(style: .darkenBackground , delegate: self)
+        print(ABPlayer.current()?.token)
+//        ABVersion.checkForUpdate()
+    
+//        ABPlayer.get { (success, player, errorType) in
+//            print(player?.fields!["nat"])
+//        }
+        
     }
+    
+    
+    
+    //MARK: Login delegate methods :
+    // userDismissScreen is an optional method
     
     func userDidLogin(_ player: ABPlayer) {
         showAlert("کاربر با کد \(player.id) وارد شد")
@@ -35,7 +50,10 @@ class ViewController: UIViewController , AbLoginDelegate {
 
     
     
-    // flash alret
+    // Flash Alert
+    // After putting your number and requesting verifynig code,
+    // if you give any respond other than 200 you'll see a flashing alert.
+    
     func showAlert(_ message : String) {
         alertLabel.text = message
         alertLabel.alpha = 1
