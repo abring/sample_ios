@@ -11,7 +11,7 @@ import UIKit
 
 
 extension UIViewController {
-    func presentLogin(style : LoginViewStyle , delegate: UIViewController) {
+    public func presentLogin(style : LoginViewStyle , delegate: UIViewController) {
         let loginVc = ABLoginViewController()
         loginVc.style = style
         loginVc.modalPresentationStyle = .overCurrentContext
@@ -20,20 +20,20 @@ extension UIViewController {
     }
 }
 
-extension AppDelegate {
-    func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
-        if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
-            window = UIWindow(frame: UIScreen.main.bounds)
-            let loginVc = ABFullScreenLoginViewController()
-            loginVc.backgroundColor = backgroundColor
-            loginVc.backgroundImage = backgroundImage
-            loginVc.identifier = rootIdentifier
-            loginVc.storyBoard = storyBoard
-            window?.rootViewController = loginVc
-            window?.makeKeyAndVisible()
-        }
-    }
-}
+//extension AppDelegate {
+//    func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
+//        if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            let loginVc = ABFullScreenLoginViewController()
+//            loginVc.backgroundColor = backgroundColor
+//            loginVc.backgroundImage = backgroundImage
+//            loginVc.identifier = rootIdentifier
+//            loginVc.storyBoard = storyBoard
+//            window?.rootViewController = loginVc
+//            window?.makeKeyAndVisible()
+//        }
+//    }
+//}
 
 
 

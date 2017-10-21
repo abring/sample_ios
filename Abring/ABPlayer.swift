@@ -35,18 +35,18 @@ public enum Sex: String {
 public class ABPlayer : NSObject , NSCoding {
     public typealias LoginCompletionBlock =  (_ success: Bool, _ errorType: ABErrorType?) -> Void
 
-    var id : String
-    var token : String?
-    var mobile : String?
-    var avatarUrl : String?
-    var sex : Sex?
-    var mail : String?
-    var name : String?
-    var likesArray : [String]?
-    var pollsArray : [String]?
-    var friendRequests : [String]?
-    var friendInvitations : [String]?
-    var birthdayTimestamp : String?
+    public var id : String
+    public var token : String?
+    public var mobile : String?
+    public var avatarUrl : String?
+    public var sex : Sex?
+    public var mail : String?
+    public var name : String?
+    public var likesArray : [String]?
+    public var pollsArray : [String]?
+    public var friendRequests : [String]?
+    public var friendInvitations : [String]?
+    public var birthdayTimestamp : String?
     
     var fields : [String : Any]?
     

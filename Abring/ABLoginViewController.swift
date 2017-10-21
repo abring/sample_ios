@@ -8,12 +8,12 @@
 
 import UIKit
 
-@objc protocol AbLoginDelegate {
+@objc public protocol AbLoginDelegate {
     func userDidLogin(_ player : ABPlayer)
     @objc optional func userDismissScreen()
 }
 
-enum LoginViewStyle {
+public enum LoginViewStyle {
     case lightBlurBackground
     case extraLightBlurBackground
     case darkBlurBackground
