@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-public enum Sex: String {
+public enum ABRSex: String {
     case male = "male"
     case female = "female"
     case notSet
@@ -32,14 +32,14 @@ public enum Sex: String {
 }
 
 
-public class ABPlayer : NSObject , NSCoding {
-    public typealias LoginCompletionBlock =  (_ success: Bool, _ errorType: ABErrorType?) -> Void
+public class ABRPlayer : NSObject , NSCoding {
+    public typealias LoginCompletionBlock =  (_ success: Bool, _ errorType: ABRErrorType?) -> Void
 
     public var id : String
     public var token : String?
     public var mobile : String?
     public var avatarUrl : String?
-    public var sex : Sex?
+    public var sex : ABRSex?
     public var mail : String?
     public var name : String?
     public var likesArray : [String]?
@@ -48,7 +48,7 @@ public class ABPlayer : NSObject , NSCoding {
     public var friendInvitations : [String]?
     public var birthdayTimestamp : String?
     
-    var fields : [String : Any]?
+    var variables : [String : Any]?
     
     
     init(withID : String) {
@@ -77,7 +77,7 @@ public class ABPlayer : NSObject , NSCoding {
         self.mobile = phone
         self.token = token
         self.avatarUrl = avatarUrl
-        self.sex = Sex(rawValue: sex)
+        self.sex = ABRSex(rawValue: sex)
         self.mail = mail
         self.name = name
         self.birthdayTimestamp = birthdayTimestamp
@@ -85,7 +85,7 @@ public class ABPlayer : NSObject , NSCoding {
         self.pollsArray = pollsArray
         self.friendRequests = requests
         self.friendInvitations = invits
-        self.fields = fields
+        self.variables = fields
     }
     
     public func encode(with aCoder: NSCoder) {
@@ -101,11 +101,11 @@ public class ABPlayer : NSObject , NSCoding {
         aCoder.encode(pollsArray, forKey: "pollsArray")
         aCoder.encode(friendRequests, forKey: "requests")
         aCoder.encode(friendInvitations, forKey: "invits")
-        aCoder.encode(fields, forKey: "fields")
+        aCoder.encode(variables, forKey: "fields")
     }
 
     
-    func passProperty(key : ABPlayerProperty) -> String? {
+    func passProperty(key : ABRPlayerProperty) -> String? {
         switch key {
         case .name:
             return self.name
@@ -125,7 +125,7 @@ public class ABPlayer : NSObject , NSCoding {
         let parameters : [String : Any] = [
             "mobile": phoneNumber
         ]
-    ABManager.request(WebserviceURL.requestCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
+    ABRNetworkManager.request(ABRWebserviceURLs.requestCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
             if json != nil {
                 completion(true, nil)
             } else {
@@ -139,7 +139,7 @@ public class ABPlayer : NSObject , NSCoding {
         let parameters : [String : Any] = [
             "mobile": phoneNumber
         ]
-        ABManager.request(WebserviceURL.resendCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
+        ABRNetworkManager.request(ABRWebserviceURLs.resendCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
             if json != nil {
                 completion(true, nil)
             } else {
@@ -150,22 +150,22 @@ public class ABPlayer : NSObject , NSCoding {
     
     
     
-    public class func verifyRegisterCode(phoneNumber : String , code : String , completion :  @escaping (_ success: Bool,_ player : ABPlayer? , _ errorType: ABErrorType?) -> Void) {
+    public class func verifyRegisterCode(phoneNumber : String , code : String , completion :  @escaping (_ success: Bool,_ player : ABRPlayer? , _ errorType: ABRErrorType?) -> Void) {
         let parameters : [String : Any] = [
             "mobile": phoneNumber ,
             "code" : code
         ]
         
-        ABManager.request(WebserviceURL.verifyCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
+        ABRNetworkManager.request(ABRWebserviceURLs.verifyCode, tokenNeeded: false, parameters: parameters) { (json , errorType) in
             if let json = json {
-                let player = ABPlayer(withID: json["player_id"].string!)
+                let player = ABRPlayer(withID: json["player_id"].string!)
                 player.token = json["token"].string
                 player.name = json["player_info"]["name"].string
-                player.sex = json["player_info"]["sex"].string != nil ? Sex(rawValue: json["player_info"]["sex"].string!) : Sex.notSet
+                player.sex = json["player_info"]["sex"].string != nil ? ABRSex(rawValue: json["player_info"]["sex"].string!) : ABRSex.notSet
                 player.mail = json["player_info"]["email"].string
                 player.avatarUrl = json["player_info"]["avatar"].string
                 player.mobile = json["player_info"]["mobile"].string
-                player.fields = json.dictionaryObject
+                player.variables = json.dictionaryObject
                 
                 
                 let userDefaults = UserDefaults.standard
@@ -182,8 +182,8 @@ public class ABPlayer : NSObject , NSCoding {
     }
     
     
-    public class func set(paramters : [String : Any] , completion :  @escaping (_ success: Bool, _ errorType: ABErrorType?) -> Void) {
-        ABManager.request(WebserviceURL.playerSet, tokenNeeded: true, parameters: paramters) { (json, errorType) in
+    public class func set(paramters : [String : Any] , completion :  @escaping (_ success: Bool, _ errorType: ABRErrorType?) -> Void) {
+        ABRNetworkManager.request(ABRWebserviceURLs.playerSet, tokenNeeded: true, parameters: paramters) { (json, errorType) in
             if let _ = json {
                 completion(true, nil)
             } else {
@@ -193,17 +193,17 @@ public class ABPlayer : NSObject , NSCoding {
     }
     
     
-    public class func get(completion :  @escaping (_ success: Bool,_ player : ABPlayer? , _ errorType: ABErrorType?) -> Void) {
-        ABManager.request(WebserviceURL.playerGet, tokenNeeded: true, parameters: nil) { (json , errorType) in
+    public class func get(completion :  @escaping (_ success: Bool,_ player : ABRPlayer? , _ errorType: ABRErrorType?) -> Void) {
+        ABRNetworkManager.request(ABRWebserviceURLs.playerGet, tokenNeeded: true, parameters: nil) { (json , errorType) in
             if let json = json {
-                let player = ABPlayer(withID: json["player_id"].string!)
+                let player = ABRPlayer(withID: json["player_id"].string!)
                 player.token = json["token"].string
                 player.name = json["player_info"]["name"].string
-                player.sex = json["player_info"]["sex"].string == "man" ? Sex.male : Sex.female
+                player.sex = json["player_info"]["sex"].string == "man" ? ABRSex.male : ABRSex.female
                 player.mail = json["player_info"]["email"].string
                 player.avatarUrl = json["player_info"]["avatar"].string
                 player.mobile = json["player_info"]["mobile"].string
-                player.fields = json.dictionaryObject
+                player.variables = json.dictionaryObject
                 
                 let userDefaults = UserDefaults.standard
                 let encodedData : Data = NSKeyedArchiver.archivedData(withRootObject: player)
@@ -219,7 +219,7 @@ public class ABPlayer : NSObject , NSCoding {
     
     
     public class func logout(completion : @escaping LoginCompletionBlock) {
-        ABManager.request(WebserviceURL.resendCode, tokenNeeded: true, parameters: nil) { (json , errorType) in
+        ABRNetworkManager.request(ABRWebserviceURLs.resendCode, tokenNeeded: true, parameters: nil) { (json , errorType) in
             if json != nil {
                 UserDefaults.standard.removeObject(forKey: "abplayer")
                 completion(true, nil)
@@ -230,16 +230,16 @@ public class ABPlayer : NSObject , NSCoding {
     }
     
     
-    public class func current() -> ABPlayer? {
+    public class func current() -> ABRPlayer? {
         if let data = UserDefaults.standard.data(forKey: "abplayer") {
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as? ABPlayer
+            return NSKeyedUnarchiver.unarchiveObject(with: data) as? ABRPlayer
         } else {
             return nil
         }
     }
     
     static func save() {
-        let user = ABPlayer.current()
+        let user = ABRPlayer.current()
         if let user = user {
             let userDefaults = UserDefaults.standard
             let encodedData : Data = NSKeyedArchiver.archivedData(withRootObject: user)

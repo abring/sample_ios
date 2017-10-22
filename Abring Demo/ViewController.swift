@@ -9,7 +9,7 @@
 import UIKit
 import Abring
 
-class ViewController: UIViewController , AbLoginDelegate {
+class ViewController: UIViewController , ABRLoginDelegate {
 
     @IBOutlet weak var alertLabel: UILabel!
     
@@ -17,23 +17,23 @@ class ViewController: UIViewController , AbLoginDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        present(ABFullScreenLoginViewController() , animated: false, completion: nil)
-        
         alertLabel.alpha = 0
-        
+        loginIfNeeded(storyBoard: "Main", rootIdentifier: "root")
 
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        ABVersion.checkForUpdate()
         
+        print(ABRPlayer.current()?.name)
+
     }
 
     @IBAction func buttonPressed() {
-        presentLogin(style: .darkenBackground , delegate: self)
-        print(ABPlayer.current()?.token)
-//        ABVersion.checkForUpdate()
-    
-//        ABPlayer.get { (success, player, errorType) in
-//            print(player?.fields!["nat"])
-//        }
-        
+        presentLogin(style: .darken , delegate: self)
+
     }
     
     
@@ -41,7 +41,7 @@ class ViewController: UIViewController , AbLoginDelegate {
     //MARK: Login delegate methods :
     // userDismissScreen is an optional method
     
-    func userDidLogin(_ player: ABPlayer) {
+    func userDidLogin(_ player: ABRPlayer) {
         showAlert("کاربر با کد \(player.id) وارد شد")
     }
     

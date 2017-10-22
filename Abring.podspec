@@ -15,5 +15,6 @@ s.dependency 'Alamofire'
 s.dependency 'SwiftyJSON'
 s.ios.deployment_target = '10.0'
 s.source_files = 'Abring/*'
+s.resources = 'Abring/*.bundle'
 
 end

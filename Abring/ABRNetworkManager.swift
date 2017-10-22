@@ -10,23 +10,23 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public enum ABErrorType {
+public enum ABRErrorType {
     case invalidToken
     case serverError
     case noConnection
     case unknownError
 }
 
-struct ABManager {
-    static func request(_ url : String , tokenNeeded : Bool , parameters : [String : Any]? ,completion : @escaping (_ responseJSON : JSON? , _ errorType : ABErrorType?) -> Void) {
-        assert(ABAppConfig.name != nil, "You must set the app name: ABAppConfig.name = YOURAPPNAME")
+struct ABRNetworkManager {
+    static func request(_ url : String , tokenNeeded : Bool , parameters : [String : Any]? ,completion : @escaping (_ responseJSON : JSON? , _ errorType : ABRErrorType?) -> Void) {
+        assert(ABRAppConfig.name != nil, "You must set the app name: ABAppConfig.name = YOURAPPNAME")
         var finalParameters : Parameters = [
-            "app": ABAppConfig.name!
+            "app": ABRAppConfig.name!
         ]
         if tokenNeeded {
-            let token = ABPlayer.current()?.token
+            let token = ABRPlayer.current()?.token
             assert(token != nil, "Token is nil")
-            finalParameters["token"] = ABPlayer.current()?.token!
+            finalParameters["token"] = ABRPlayer.current()?.token!
         }
         if parameters != nil {
             for (key , value) in parameters! {
@@ -34,7 +34,7 @@ struct ABManager {
             }
         }
         if !NetworkReachabilityManager()!.isReachable {
-            completion(nil, ABErrorType.noConnection)
+            completion(nil, ABRErrorType.noConnection)
             return
         }
         Alamofire.request(url ,
@@ -50,13 +50,13 @@ struct ABManager {
                                     completion(json["result"], nil)
                                 case "401" :
                                     //WARNING: incomplete
-                                    completion(nil, ABErrorType.invalidToken)
+                                    completion(nil, ABRErrorType.invalidToken)
                                 default :
-                                    completion(nil, ABErrorType.unknownError)
+                                    completion(nil, ABRErrorType.unknownError)
                                 }
                             case .failure(let error):
                                 if response.response?.statusCode == 500 {
-                                    completion(nil, ABErrorType.serverError)
+                                    completion(nil, ABRErrorType.serverError)
                                 }
                                 print(error)
                             }

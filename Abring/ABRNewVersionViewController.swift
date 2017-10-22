@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ABNewVersionViewController: UIViewController {
+class ABRNewVersionViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var downloadButton: UIButton!
@@ -16,13 +16,12 @@ class ABNewVersionViewController: UIViewController {
     @IBOutlet weak var logoImageView: UIImageView!
     
     
-    var app : ABApp?
+    var app : ABRApp?
     var isForce = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("fdsf")
         setup()
         setAppIcon()
         
@@ -46,13 +45,13 @@ class ABNewVersionViewController: UIViewController {
   
     
     func setup() {
-        downloadButton.backgroundColor = ABAppConfig.tintColor
-        laterButton.setTitleColor(ABAppConfig.tintColor, for: .normal)
-        downloadButton.titleLabel?.font = ABAppConfig.font
-        downloadButton.setTitle(ABAppConfig.buttonsTitles.updateDownloadButtonTitle, for: .normal)
-        laterButton.titleLabel?.font = ABAppConfig.font
-        laterButton.setTitle(ABAppConfig.buttonsTitles.updateLaterButtonTitle, for: .normal)
-        messageLabel.font = ABAppConfig.font
+        downloadButton.backgroundColor = ABRAppConfig.tintColor
+        laterButton.setTitleColor(ABRAppConfig.tintColor, for: .normal)
+        downloadButton.titleLabel?.font = ABRAppConfig.font
+        downloadButton.setTitle(ABRAppConfig.buttonsTitles.updateDownloadButtonTitle, for: .normal)
+        laterButton.titleLabel?.font = ABRAppConfig.font
+        laterButton.setTitle(ABRAppConfig.buttonsTitles.updateLaterButtonTitle, for: .normal)
+        messageLabel.font = ABRAppConfig.font
         
     }
     

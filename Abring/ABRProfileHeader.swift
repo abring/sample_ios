@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileHeader: UITableViewCell {
+class ABRProfileHeader: UITableViewCell {
     
     // There is a default .xib file attached to this class,
     // If you want a custom design and layout you should make your .xib file and then attach its views to these properties:
@@ -21,7 +21,7 @@ class ProfileHeader: UITableViewCell {
     
     // Player edit profile view controller , do not implement its action, it will be added automatically
 //    @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var editButton: ABSwitchableButton!
+    @IBOutlet weak var editButton: ABRSwitchableButton!
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -38,8 +38,8 @@ class ProfileHeader: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        logoutButton.titleLabel?.font = ABAppConfig.font
-        editButton.titleLabel?.font = ABAppConfig.font
+        logoutButton.titleLabel?.font = ABRAppConfig.font
+        editButton.titleLabel?.font = ABRAppConfig.font
         logoutButton.setTitleColor(UIColor.white, for: .normal)
         editButton.setTitleColor(UIColor.white, for: .normal)
         

@@ -7,8 +7,8 @@ target 'Abring Demo' do
 
   # Pods for Abring Demo
 
-pod 'Alamofire', '~> 4.2'
-pod 'SwiftyJSON', '~> 3.1'
+pod 'Alamofire'
+pod 'SwiftyJSON'
 
 
 pod 'Abring', :path => '../Abring Demo/'

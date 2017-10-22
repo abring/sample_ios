@@ -9,20 +9,20 @@
 import UIKit
 
 
-class ABFullScreenLoginViewController: UIViewController , AbLoginDelegate {
+class ABRFullScreenLoginViewController: UIViewController , ABRLoginDelegate {
     
     var backgroundColor : UIColor? 
     var backgroundImage : UIImage?
     var identifier : String?
     var storyBoard : String?
-    var login : ABLoginViewController!
+    var login : ABRLoginViewController!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         
-        login = ABLoginViewController()
+        login = ABRLoginViewController()
         login.isFullScreen = true
         addChildViewController(login)
         login.view.frame = view.frame
@@ -45,7 +45,7 @@ class ABFullScreenLoginViewController: UIViewController , AbLoginDelegate {
     
     
 
-    func userDidLogin(_ player: ABPlayer) {
+    func userDidLogin(_ player: ABRPlayer) {
         let storyboard = UIStoryboard(name: storyBoard!, bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: identifier!)
         present(vc, animated: true) { 

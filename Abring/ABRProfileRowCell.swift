@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileRowCell: UITableViewCell {
+class ABRProfileRowCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
@@ -18,8 +18,8 @@ class ProfileRowCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        titleLabel.font = ABAppConfig.font
-        valueTextField.font = ABAppConfig.font
+        titleLabel.font = ABRAppConfig.font
+        valueTextField.font = ABRAppConfig.font
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -11,12 +11,26 @@ import UIKit
 
 
 extension UIViewController {
-    public func presentLogin(style : LoginViewStyle , delegate: UIViewController) {
-        let loginVc = ABLoginViewController()
+    public func presentLogin(style : ABRLoginViewStyle , delegate: UIViewController) {
+        let loginVc = ABRLoginViewController()
         loginVc.style = style
         loginVc.modalPresentationStyle = .overCurrentContext
-        loginVc.delegate = delegate as? AbLoginDelegate
+        loginVc.delegate = delegate as? ABRLoginDelegate
         self.present(loginVc, animated: false, completion: nil)
+    }
+    
+    public func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
+        if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
+            
+//            let loginVc = UIStoryboard(name: storyBoard, bundle: Bundle.main).instantiateViewController(withIdentifier: rootIdentifier) as! ABRFullScreenLoginViewController
+            let loginVc = ABRFullScreenLoginViewController()
+            loginVc.backgroundColor = backgroundColor
+            loginVc.backgroundImage = backgroundImage
+
+            ABRUtils.topViewController?.present(loginVc, animated: false, completion: nil)
+            
+//            present(loginVc, animated: false, completion: nil)
+        }
     }
 }
 
@@ -24,7 +38,7 @@ extension UIViewController {
 //    func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
 //        if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
 //            window = UIWindow(frame: UIScreen.main.bounds)
-//            let loginVc = ABFullScreenLoginViewController()
+//            let loginVc = ABRFullScreenLoginViewController()
 //            loginVc.backgroundColor = backgroundColor
 //            loginVc.backgroundImage = backgroundImage
 //            loginVc.identifier = rootIdentifier
@@ -38,15 +52,15 @@ extension UIViewController {
 
 
 extension UIView {
-    func showOverlayError(_ errorType : ABErrorType) {
+    func showOverlayError(_ errorType : ABRErrorType) {
         let redView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         redView.backgroundColor = UIColor.red.withAlphaComponent(0.9)
         redView.alpha = 0
         self.addSubview(redView)
         
         let label = UILabel(frame: redView.frame)
-        if ABAppConfig.font != nil {
-            label.font = ABAppConfig.font
+        if ABRAppConfig.font != nil {
+            label.font = ABRAppConfig.font
         }
         label.textAlignment = .center
         label.textColor = UIColor.white

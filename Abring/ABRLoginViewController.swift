@@ -8,17 +8,17 @@
 
 import UIKit
 
-@objc public protocol AbLoginDelegate {
-    func userDidLogin(_ player : ABPlayer)
+@objc public protocol ABRLoginDelegate {
+    func userDidLogin(_ player : ABRPlayer)
     @objc optional func userDismissScreen()
 }
 
-public enum LoginViewStyle {
-    case lightBlurBackground
-    case extraLightBlurBackground
-    case darkBlurBackground
-    case darkenBackground
-    case lightenBackground
+public enum ABRLoginViewStyle {
+    case lightBlur
+    case extraLightBlur
+    case darkBlur
+    case darken
+    case lighten
 }
 
 enum LoginType {
@@ -27,7 +27,7 @@ enum LoginType {
     case both
 }
 
-class ABLoginViewController: UIViewController {
+class ABRLoginViewController: UIViewController {
 
     private var inset : CGFloat = 10
     var isFullScreen = false {
@@ -45,7 +45,7 @@ class ABLoginViewController: UIViewController {
             }
         }
     }
-    var style : LoginViewStyle = .darkenBackground
+    var style : ABRLoginViewStyle = .darken
     
     private var dismissButton : UIButton!
     private var mainScrollView : UIScrollView!
@@ -67,7 +67,7 @@ class ABLoginViewController: UIViewController {
     private var inputCodeLabel : UILabel!
     
 
-    var delegate : AbLoginDelegate?
+    var delegate : ABRLoginDelegate?
     
     //MARK: Lifecycle
     
@@ -133,29 +133,29 @@ class ABLoginViewController: UIViewController {
     private func presentAnimation() {
         
         switch style {
-        case .darkenBackground:
+        case .darken:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor(white: 0, alpha: 0.4)
             })
-        case .lightenBackground:
+        case .lighten:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor(white: 1, alpha: 0.4)
             })
-        case .lightBlurBackground:
+        case .lightBlur:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
             UIView.animate(withDuration: 0.3 , animations: { 
                 self.visualEffectBlurView.effect = UIBlurEffect(style: .light)
             })
-        case .extraLightBlurBackground:
+        case .extraLightBlur:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
             UIView.animate(withDuration: 0.3 , animations: {
                 self.visualEffectBlurView.effect = UIBlurEffect(style: .extraLight)
             })
-        case .darkBlurBackground:
+        case .darkBlur:
             visualEffectBlurView.frame = view.bounds
             view.insertSubview(visualEffectBlurView, at: 0)
             visualEffectBlurView.alpha = 1
@@ -173,11 +173,11 @@ class ABLoginViewController: UIViewController {
     
     private func dismissAnimation(completion : @escaping () -> Void) {
         switch style {
-        case .darkenBackground , .lightenBackground:
+        case .darken , .lighten:
             UIView.animate(withDuration: 0.3, animations: {
                 self.view.backgroundColor = UIColor.clear
             })
-        case .lightBlurBackground , .extraLightBlurBackground , .darkBlurBackground:
+        case .lightBlur , .extraLightBlur , .darkBlur:
             UIView.animate(withDuration: 0.2 , animations: {
                 self.visualEffectBlurView.effect = nil
             })
@@ -195,18 +195,18 @@ class ABLoginViewController: UIViewController {
     //MARK: setup ui
     
     private func setupTextField() {
-        if ABAppConfig.textField != nil {
-            phoneTf = ABAppConfig.textField
+        if ABRAppConfig.textField != nil {
+            phoneTf = ABRAppConfig.textField
             phoneTf.frame = CGRect(x: 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30)
-            codeTf = ABAppConfig.textField
+            codeTf = ABRAppConfig.textField
             codeTf.frame = CGRect(x: loginView.bounds.size.width + 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30)
         } else {
-            phoneTf = TextField(frame: CGRect(x: 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30))
-            phoneTf.placeholder = ABAppConfig.textFieldsPlaceHolders.phoneTextFieldPlaceHolder
+            phoneTf = ABRUITextField(frame: CGRect(x: 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30))
+            phoneTf.placeholder = ABRAppConfig.textFieldsPlaceHolders.phoneTextFieldPlaceHolder
             phoneTf.keyboardType = .phonePad
             
-            codeTf = TextField(frame: CGRect(x: loginView.bounds.size.width + 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30))
-            codeTf.placeholder = ABAppConfig.textFieldsPlaceHolders.codeTextFieldPlaceHolder
+            codeTf = ABRUITextField(frame: CGRect(x: loginView.bounds.size.width + 30, y: loginView.bounds.size.height / 2 - 25, width: loginView.bounds.size.width - 60, height: 30))
+            codeTf.placeholder = ABRAppConfig.textFieldsPlaceHolders.codeTextFieldPlaceHolder
             codeTf.keyboardType = .numberPad
         }
         innerScrollView.addSubview(phoneTf)
@@ -214,34 +214,34 @@ class ABLoginViewController: UIViewController {
     }
     
     private func setupButtons() {
-        if ABAppConfig.mainButton != nil {
-            confirmPhoneBtn = ABAppConfig.mainButton
+        if ABRAppConfig.mainButton != nil {
+            confirmPhoneBtn = ABRAppConfig.mainButton
             confirmPhoneBtn.frame = CGRect(x: 30, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - 60 , height: 34)
         } else {
             confirmPhoneBtn = UIButton(type: .system)
             confirmPhoneBtn.frame = CGRect(x: 30, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - 60 , height: 34)
-            confirmPhoneBtn.backgroundColor = ABAppConfig.tintColor
+            confirmPhoneBtn.backgroundColor = ABRAppConfig.tintColor
             confirmPhoneBtn.layer.cornerRadius = 4
-            confirmPhoneBtn.setTitle(ABAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle , for: .normal)
+            confirmPhoneBtn.setTitle(ABRAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle , for: .normal)
             confirmPhoneBtn.tintColor = UIColor.white
-            confirmPhoneBtn.titleLabel?.font = ABAppConfig.font
+            confirmPhoneBtn.titleLabel?.font = ABRAppConfig.font
         }
         confirmPhoneBtn.addTarget(self, action: #selector(sendCodeAction), for: .touchUpInside)
         innerScrollView.addSubview(confirmPhoneBtn)
 
     
         
-        if ABAppConfig.mainButton != nil {
-            confirmCodeBtn = ABAppConfig.mainButton
+        if ABRAppConfig.mainButton != nil {
+            confirmCodeBtn = ABRAppConfig.mainButton
             confirmCodeBtn.frame = CGRect(x: loginView.bounds.size.width + 30, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - 60 , height: 34)
         } else {
             confirmCodeBtn = UIButton(type: .system)
             confirmCodeBtn.frame = CGRect(x: loginView.bounds.size.width + 30, y: loginView.bounds.size.height - 60 , width: loginView.bounds.size.width - 60 , height: 34)
-            confirmCodeBtn.backgroundColor = ABAppConfig.tintColor
+            confirmCodeBtn.backgroundColor = ABRAppConfig.tintColor
             confirmCodeBtn.layer.cornerRadius = 4
-            confirmCodeBtn.setTitle(ABAppConfig.buttonsTitles.loginConfirmCodeButtonTitle , for: .normal)
+            confirmCodeBtn.setTitle(ABRAppConfig.buttonsTitles.loginConfirmCodeButtonTitle , for: .normal)
             confirmCodeBtn.tintColor = UIColor.white
-            confirmCodeBtn.titleLabel?.font = ABAppConfig.font
+            confirmCodeBtn.titleLabel?.font = ABRAppConfig.font
         }
         confirmCodeBtn.addTarget(self, action: #selector(verifyCodeAction), for: .touchUpInside)
         innerScrollView.addSubview(confirmCodeBtn)
@@ -262,10 +262,10 @@ class ABLoginViewController: UIViewController {
         
         backBtn = UIButton(type: .system)
         backBtn.frame = CGRect(x: loginView.bounds.width, y: 4, width: 30, height: 30)
-        let img = UIImage(named: "AbringKit.bundle/images/back", in: nil, compatibleWith: nil) ?? UIImage()
+        let img = UIImage(named: "AbringKit.bundle/images/back", in: Bundle.init(for: ABRApp.self), compatibleWith: nil) ?? UIImage()
         img.withRenderingMode(.alwaysTemplate)
         backBtn.setImage(img, for: .normal)
-        backBtn.tintColor = ABAppConfig.tintColor
+        backBtn.tintColor = ABRAppConfig.tintColor
         backBtn.addTarget(self, action: #selector(backToInputPhone), for: .touchUpInside)
         innerScrollView.addSubview(backBtn)
         
@@ -273,20 +273,20 @@ class ABLoginViewController: UIViewController {
     
     private func setupLabels() {
         inputPhoneLabel = UILabel(frame: CGRect(x: 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
-        inputPhoneLabel.text = ABAppConfig.texts.inputPhoneText
+        inputPhoneLabel.text = ABRAppConfig.texts.inputPhoneText
         innerScrollView.addSubview(inputPhoneLabel)
         
         inputCodeLabel = UILabel(frame: CGRect(x: loginView.bounds.size.width + 10, y: 10, width: loginView.bounds.size.width - 20 , height: 80))
-        inputCodeLabel.text = ABAppConfig.texts.inputCodeText
+        inputCodeLabel.text = ABRAppConfig.texts.inputCodeText
         innerScrollView.addSubview(inputCodeLabel)
         
         for label in [inputCodeLabel , inputPhoneLabel] {
-            if ABAppConfig.font != nil {
-                label?.font = UIFont(name: ABAppConfig.font!.fontName, size: ABAppConfig.font!.pointSize - 2)
+            if ABRAppConfig.font != nil {
+                label?.font = UIFont(name: ABRAppConfig.font!.fontName, size: ABRAppConfig.font!.pointSize - 2)
             }
             
             label?.numberOfLines = 3
-            label?.textColor = ABAppConfig.labelsColor
+            label?.textColor = ABRAppConfig.labelsColor
             label?.textAlignment = .center
         }
         
@@ -361,10 +361,10 @@ class ABLoginViewController: UIViewController {
             loginView.addSubview(activity)
             activity.center = confirmPhoneBtn.center
             activity.startAnimating()
-            ABPlayer.requestRegisterCode(phoneNumber: phoneTf.text!, completion: { (success, errorType) in
+            ABRPlayer.requestRegisterCode(phoneNumber: phoneTf.text!, completion: { (success, errorType) in
                 activity.stopAnimating()
                 activity.removeFromSuperview()
-                self.confirmPhoneBtn.setTitle(ABAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle, for: .normal)
+                self.confirmPhoneBtn.setTitle(ABRAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle, for: .normal)
                 self.confirmPhoneBtn.isEnabled = true
                 if success {
                     self.innerScrollView.setContentOffset(CGPoint(x: self.loginView.bounds.size.width , y:0) , animated: true)
@@ -390,10 +390,10 @@ class ABLoginViewController: UIViewController {
             loginView.bringSubview(toFront: activity)
             activity.center = CGPoint(x: confirmCodeBtn.center.x - loginView.frame.size.width, y: confirmCodeBtn.center.y)
             activity.startAnimating()
-            ABPlayer.verifyRegisterCode(phoneNumber: phoneTf.text!, code: codeTf.text!, completion: { (success, player , errorType) in
+            ABRPlayer.verifyRegisterCode(phoneNumber: phoneTf.text!, code: codeTf.text!, completion: { (success, player , errorType) in
                 activity.stopAnimating()
                 activity.removeFromSuperview()
-                self.confirmCodeBtn.setTitle(ABAppConfig.buttonsTitles.loginConfirmCodeButtonTitle, for: .normal)
+                self.confirmCodeBtn.setTitle(ABRAppConfig.buttonsTitles.loginConfirmCodeButtonTitle, for: .normal)
                 self.confirmCodeBtn.isEnabled = true
                 if success {
                     self.view.endEditing(true)

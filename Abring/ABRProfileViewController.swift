@@ -9,9 +9,9 @@
 import UIKit
 
 
-public class ABProfileViewController: UITableViewController , UITextFieldDelegate {
+public class ABRProfileViewController: UITableViewController , UITextFieldDelegate {
     
-    public var headerBackgroundColor = ABAppConfig.tintColor
+    public var headerBackgroundColor = ABRAppConfig.tintColor
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +35,14 @@ public class ABProfileViewController: UITableViewController , UITextFieldDelegat
     //MARK: Table View Header
     
     func fillHeader() {
-        let header = tableView.tableHeaderView as? ProfileHeader
-        header?.nameLabel.text = ABPlayer.current()?.mobile
+        let header = tableView.tableHeaderView as? ABRProfileHeader
+        header?.nameLabel.text = ABRPlayer.current()?.mobile
         header?.loadActivity.isHidden = false
         header?.loadActivity.startAnimating()
         header?.editButton.addTarget(self, action: #selector(editAction(_:)) , for: .touchUpInside)
         
         let pictureURL : URL?
-        if let avatar = ABPlayer.current()?.avatarUrl {
+        if let avatar = ABRPlayer.current()?.avatarUrl {
             pictureURL = URL(string: avatar)
             if pictureURL != nil {
                 downloadImage(pictureURL!, completion: { (image) in
@@ -58,9 +58,7 @@ public class ABProfileViewController: UITableViewController , UITextFieldDelegat
         }
     }
     
-    @objc func editAction(_ sender : ABSwitchableButton?) {
-        
-        sender?.isEditting = !isEditing
+    @objc func editAction(_ sender : ABRSwitchableButton?) {
         tableView.reloadData()
     }
     
@@ -95,18 +93,26 @@ public class ABProfileViewController: UITableViewController , UITextFieldDelegat
     }
     
     func registerNibs() {
-        let row = UINib(nibName: "ProfileRow", bundle: nil)
-        tableView.register(row, forCellReuseIdentifier: "profileRow")
-        if let userNib = Bundle.main.loadNibNamed("ProfileHeader", owner: self, options: nil) {
-            tableView.tableHeaderView = userNib.first as? UIView
+        if Bundle.main.path(forResource: "ABRProfileRow", ofType: "nib") != nil {
+            let row = UINib(nibName: "ABRProfileRow", bundle: Bundle.main)
+            tableView.register(row, forCellReuseIdentifier: "profileRow")
         } else {
-            
+            let row = UINib(nibName: "ABRProfileRow", bundle: Bundle.init(for: ABRProfileRowCell.self))
+            tableView.register(row, forCellReuseIdentifier: "profileRow")
+        }
+        
+        if Bundle.main.path(forResource: "ABRProfileHeader", ofType: "nib") != nil {
+            let userNib = UINib(nibName: "ABRProfileHeader", bundle: Bundle.main)
+            tableView.tableHeaderView = userNib.instantiate(withOwner: self, options: [:]).first as? UIView
+        } else {
+            let abrNib = UINib(nibName: "ABRProfileHeader", bundle: Bundle.init(for: ABRProfileHeader.self))
+            tableView.tableHeaderView = abrNib.instantiate(withOwner: self, options: [:]).first as? UIView
         }
     }
 
     
     func getUser() {
-        ABPlayer.get { (success, player, errorType) in
+        ABRPlayer.get { (success, player, errorType) in
             if success {
                 
             }
@@ -120,20 +126,20 @@ public class ABProfileViewController: UITableViewController , UITextFieldDelegat
     }
     
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ABAppConfig.playerIncludes?.count ?? 0
+        return ABRAppConfig.playerIncludes?.count ?? 0
     }
     
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "profileRow", for: indexPath) as! ProfileRowCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "profileRow", for: indexPath) as! ABRProfileRowCell
         cell.selectionStyle = .none
-        let info = ABAppConfig.playerIncludes?[indexPath.row]
+        let info = ABRAppConfig.playerIncludes?[indexPath.row]
         cell.titleLabel.text = info?.rawValue
-        cell.valueTextField.text = ABPlayer.current()?.passProperty(key: info!)
+        cell.valueTextField.text = ABRPlayer.current()?.passProperty(key: info!)
         cell.valueTextField.returnKeyType = .done
         cell.valueTextField.delegate = self
         
         
-        if ((tableView.tableHeaderView as! ProfileHeader).editButton as! ABSwitchableButton).isEditting {
+        if ((tableView.tableHeaderView as! ABRProfileHeader).editButton as! ABRSwitchableButton).isOn {
             cell.valueTextField.isUserInteractionEnabled = true
         } else {
             cell.valueTextField.isUserInteractionEnabled = false
@@ -145,7 +151,7 @@ public class ABProfileViewController: UITableViewController , UITextFieldDelegat
     //MARK: Table View Delegate
     
     override public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let header = tableView.tableHeaderView as? ProfileHeader
+        let header = tableView.tableHeaderView as? ABRProfileHeader
         header?.headerHeightConstraint.constant = scrollView.contentOffset.y < 0 ?  -scrollView.contentOffset.y + 200 : 200
     }
     

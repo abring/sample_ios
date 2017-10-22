@@ -10,9 +10,9 @@ import Foundation
 import SwiftyJSON
 
 
-public class ABAnalytics : NSObject {
-    class func set(variable : String , completion :  (( _ success : Bool , _ errorType : ABErrorType?) -> Void)? = nil) {
-        ABManager.request(WebserviceURL.analyticSet , tokenNeeded: true, parameters: ["variable" : variable]) { (json, errorType) in
+public class ABRAnalytics : NSObject {
+    class func set(variable : String , completion :  (( _ success : Bool , _ errorType : ABRErrorType?) -> Void)? = nil) {
+        ABRNetworkManager.request(ABRWebserviceURLs.analyticSet , tokenNeeded: true, parameters: ["variable" : variable]) { (json, errorType) in
             if errorType != nil {
                 completion?(true, nil)
             } else {

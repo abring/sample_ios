@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        ABAppConfig.name = "com.aseman.abringDemo"
-        ABAppConfig.font = UIFont(name: "WebYekan", size: 14)
-        ABAppConfig.tintColor = UIColor.orange
-        ABAppConfig.playerIncludes = [.name , .mail , .sex]
+        ABRAppConfig.name = "com.aseman.abringDemo"
+        ABRAppConfig.font = UIFont(name: "WebYekan", size: 14)
+        ABRAppConfig.tintColor = UIColor.orange
+        ABRAppConfig.playerIncludes = [.name , .mail , .sex]
         
     
         

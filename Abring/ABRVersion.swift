@@ -9,7 +9,7 @@
 import Foundation
 
 
-public struct ABVersion : Equatable {
+public struct ABRVersion : Equatable {
     
     var versionString : String
     var major : Int?
@@ -33,11 +33,12 @@ public struct ABVersion : Equatable {
         }
     }
     
+    // IMPORTANT
+    // READ THIS CAREFULLY
     
-    //MARK: other methods
     
-    // Call this method for checking if there is any update available or not ,
-    // You must have a variable named 'update' in your app date in Abring Panel
+    // Call below method for checking if there is any update available or not ,
+    // You must have a variable named 'update' in your app data in Abring Panel
     // set update variable like this: 
 //    {
 //        "ios" : {
@@ -51,26 +52,38 @@ public struct ABVersion : Equatable {
     // force is the minimum version that user can run your app
     // link is the url for downloading your app, for example you can use appstore link
     
+    
+    
+    //MARK: other methods
+    
     public static func checkForUpdate() {
-        ABApp.get { (success, _ , app) in
+        ABRApp.get { (success, _ , app) in
             if success {
-                let vc = ABNewVersionViewController(nibName: "NewVersion", bundle: Bundle.main)
+                var vc : ABRNewVersionViewController!
+                if Bundle.main.path(forResource: "ABNewVersion", ofType: "nib") != nil {
+                    print("found xib main bundle")
+                    vc = ABRNewVersionViewController(nibName: "ABNewVersion", bundle: Bundle.main)
+                } else {
+                    vc = ABRNewVersionViewController(nibName: "ABNewVersion", bundle: Bundle.init(for: ABRNewVersionViewController.self))
+                }
                 vc.modalPresentationStyle = .overCurrentContext
                 vc.app = app
                 let bundleVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
                 if let current = app?.currentVersion {
-                    if current > ABVersion(bundleVersion) {
-                        if ABVersion(bundleVersion) < (app?.minimumVersion)! {
+                    if current > ABRVersion(bundleVersion) {
+                        if ABRVersion(bundleVersion) < (app?.minimumVersion)! {
                             // force update
                             vc.isForce = true
-                            ABUtils.topViewController?.present(vc, animated: true, completion: nil)
+                            ABRUtils.topViewController?.present(vc, animated: true, completion: nil)
                         } else {
                             if let ver = app?.currentVersion?.versionString {
                                 let savedVer = UserDefaults.standard.bool(forKey: ver)
                                 if !savedVer {
                                     // normal update
-                                    print("update available")
-                                    ABUtils.topViewController?.present(vc, animated: true, completion: nil)
+                                    print("Abring : Update available")
+                                    ABRUtils.topViewController?.present(vc, animated: true, completion: nil)
+                                } else {
+                                    print("Abring : Update View Controller has been shown before")
                                 }
                             }
                         }
@@ -89,7 +102,7 @@ public struct ABVersion : Equatable {
     
     //MARK: Operators
     
-    public static func ==(lhs: ABVersion, rhs: ABVersion) -> Bool {
+    public static func ==(lhs: ABRVersion, rhs: ABRVersion) -> Bool {
         if lhs.minor == nil || rhs.minor == nil {
             return (lhs.major == rhs.major) && (lhs.mid == rhs.mid)
         } else {
@@ -98,26 +111,26 @@ public struct ABVersion : Equatable {
         
     }
     
-    public static func >(lhs: ABVersion, rhs: ABVersion) -> Bool {
+    public static func >(lhs: ABRVersion, rhs: ABRVersion) -> Bool {
         return lhs.major ?? 0 > rhs.major ?? 0 ||
             lhs.major == rhs.major && lhs.mid ?? 0 > rhs.mid ?? 0 ||
             lhs.major == rhs.major && lhs.mid == rhs.mid && lhs.minor ?? 0 > rhs.minor ?? 0
     }
     
-    public static func <(lhs: ABVersion, rhs: ABVersion) -> Bool {
+    public static func <(lhs: ABRVersion, rhs: ABRVersion) -> Bool {
         return lhs.major ?? 0 < rhs.major ?? 0 ||
             lhs.major == rhs.major && lhs.mid ?? 0 < rhs.mid ?? 0 ||
             lhs.major == rhs.major && lhs.mid == rhs.mid && lhs.minor ?? 0 < rhs.minor ?? 0
     }
     
-    public static func >=(lhs: ABVersion, rhs: ABVersion) -> Bool {
+    public static func >=(lhs: ABRVersion, rhs: ABRVersion) -> Bool {
         return (lhs.major ?? 0 > rhs.major ?? 0 ||
             lhs.major == rhs.major && lhs.mid ?? 0 > rhs.mid ?? 0 ||
             lhs.major == rhs.major && lhs.mid == rhs.mid && lhs.minor ?? 0 > rhs.minor ?? 0) ||
             ((lhs.major == rhs.major) && (lhs.mid == rhs.mid) && (lhs.minor == rhs.minor))
     }
     
-    public static func <=(lhs: ABVersion, rhs: ABVersion) -> Bool {
+    public static func <=(lhs: ABRVersion, rhs: ABRVersion) -> Bool {
         return (lhs.major ?? 0 < rhs.major ?? 0 ||
             lhs.major == rhs.major && lhs.mid ?? 0 < rhs.mid ?? 0 ||
             lhs.major == rhs.major && lhs.mid == rhs.mid && lhs.minor ?? 0 < rhs.minor ?? 0) ||
