@@ -1,4 +1,4 @@
-[![pod](https://img.shields.io/badge/pod-v0.3.0-blue.svg)](https://github.com/abring/sample_ios)
+[![pod](https://img.shields.io/badge/Pod-0.3.1-blue.svg)](https://github.com/abring/sample_ios)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey.svg)](https://github.com/abring/sample_ios)
 [![language](https://img.shields.io/badge/language-swift-orange.svg)](https://github.com/abring/sample_ios)
 [![License](https://img.shields.io/cocoapods/l/TransitionButton.svg?style=flat)](https://github.com/abring/sample_ios)
@@ -13,7 +13,7 @@ Abring makes it easy to implement login to your app.
 
 ## Requirements
 - iOS 10.0+
-- XCode 8.0
+- XCode 9.0
 - Swift 4
 
 
