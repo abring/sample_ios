@@ -14,7 +14,7 @@ Abring makes it easy to implement login to your app.
 ## Requirements
 - iOS 10.0+
 - XCode 8.0
-- Swift 3
+- Swift 4
 
 
 ## Integration
