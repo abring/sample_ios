@@ -2,7 +2,7 @@
 //  ABManager.swift
 //  abringTest
 //
-//  Created by Hosein on 5/3/1396 AP.
+//  Created by Hosein Abbaspour on 5/3/1396 AP.
 //  Copyright © 1396 AP Sanjaqak. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public enum ABRErrorType {
+@objc public enum ABRErrorType : Int {
     case invalidToken
     case serverError
     case noConnection

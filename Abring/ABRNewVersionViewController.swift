@@ -2,11 +2,20 @@
 //  ABNewVersionViewController.swift
 //  Abring Demo
 //
-//  Created by Hosein on 6/27/1396 AP.
+//  Created by Hosein Abbaspour on 6/27/1396 AP.
 //  Copyright © 1396 AP AsemanLTD. All rights reserved.
 //
 
 import UIKit
+
+/**
+ Default view controller for update alert.
+ ## Customization
+ There is a xib file named ABRNewVersion attached to this class. if you need custom UI and layout make a new xib file and connect its File Owner to this class.
+ ## Note
+ If you did this, you must connect all the outlets available in this class to your views.
+*/
+
 
 class ABRNewVersionViewController: UIViewController {
 

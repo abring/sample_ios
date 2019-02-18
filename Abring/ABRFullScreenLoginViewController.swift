@@ -2,7 +2,7 @@
 //  ABFullScreenLoginViewController.swift
 //  Abring Demo
 //
-//  Created by Hosein on 5/8/1396 AP.
+//  Created by Hosein Abbaspour on 5/8/1396 AP.
 //  Copyright © 1396 AP AsemanLTD. All rights reserved.
 //
 
@@ -16,9 +16,14 @@ class ABRFullScreenLoginViewController: UIViewController , ABRLoginDelegate {
     var identifier : String?
     var storyBoard : String?
     var login : ABRLoginViewController!
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("viewdid")
         // Do any additional setup after loading the view.
         
         

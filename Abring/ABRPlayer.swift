@@ -2,7 +2,7 @@
 //  User.swift
 //  Peykfood
 //
-//  Created by Hosein on 2/5/1396 AP.
+//  Created by Hosein Abbaspour on 2/5/1396 AP.
 //  Copyright © 1396 AP Sanjaqak. All rights reserved.
 //
 
@@ -219,9 +219,10 @@ public class ABRPlayer : NSObject , NSCoding {
     
     
     public class func logout(completion : @escaping LoginCompletionBlock) {
-        ABRNetworkManager.request(ABRWebserviceURLs.resendCode, tokenNeeded: true, parameters: nil) { (json , errorType) in
+        ABRNetworkManager.request(ABRWebserviceURLs.logout, tokenNeeded: true, parameters: nil) { (json , errorType) in
             if json != nil {
                 UserDefaults.standard.removeObject(forKey: "abplayer")
+                UserDefaults.standard.synchronize()
                 completion(true, nil)
             } else {
                 completion(false, errorType)

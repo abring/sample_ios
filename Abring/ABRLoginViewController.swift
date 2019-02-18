@@ -2,7 +2,7 @@
 //  AbLoginViewController.swift
 //  KhabarVarzeshi
 //
-//  Created by Hosein on 3/22/1396 AP.
+//  Created by Hosein Abbaspour on 3/22/1396 AP.
 //  Copyright © 1396 AP Sanjaqak. All rights reserved.
 //
 
@@ -11,6 +11,7 @@ import UIKit
 @objc public protocol ABRLoginDelegate {
     func userDidLogin(_ player : ABRPlayer)
     @objc optional func userDismissScreen()
+    @objc optional func errorOccured(_ errorType : ABRErrorType)
 }
 
 public enum ABRLoginViewStyle {
@@ -25,6 +26,22 @@ enum LoginType {
     case justPhone
     case justUserPass
     case both
+}
+
+class ABRTimer : Timer {
+    @discardableResult class func countDownFrom(_ time : Int , actionBlock : @escaping (_ current : Int) -> Void , finished completion : @escaping () -> Void) -> Timer {
+        var timerCount = time
+        let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
+            timerCount -= 1
+            actionBlock(timerCount)
+            if timerCount == 0 {
+                timer.invalidate()
+                completion()
+            }
+        })
+        print("d")
+        return timer
+    }
 }
 
 class ABRLoginViewController: UIViewController {
@@ -65,6 +82,7 @@ class ABRLoginViewController: UIViewController {
     private var backBtn = UIButton()
     private var inputPhoneLabel : UILabel!
     private var inputCodeLabel : UILabel!
+    private var timerLabel : UILabel!
     
 
     var delegate : ABRLoginDelegate?
@@ -75,7 +93,6 @@ class ABRLoginViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        
 
     }
     
@@ -280,7 +297,10 @@ class ABRLoginViewController: UIViewController {
         inputCodeLabel.text = ABRAppConfig.texts.inputCodeText
         innerScrollView.addSubview(inputCodeLabel)
         
-        for label in [inputCodeLabel , inputPhoneLabel] {
+        timerLabel = UILabel(frame: CGRect(x: loginView.bounds.size.width + 10, y: loginView.bounds.size.height - 90, width: loginView.bounds.size.width - 20 , height: 20))
+        innerScrollView.addSubview(timerLabel)
+        
+        for label in [inputCodeLabel , inputPhoneLabel , timerLabel] {
             if ABRAppConfig.font != nil {
                 label?.font = UIFont(name: ABRAppConfig.font!.fontName, size: ABRAppConfig.font!.pointSize - 2)
             }
@@ -361,17 +381,20 @@ class ABRLoginViewController: UIViewController {
             loginView.addSubview(activity)
             activity.center = confirmPhoneBtn.center
             activity.startAnimating()
-            ABRPlayer.requestRegisterCode(phoneNumber: phoneTf.text!, completion: { (success, errorType) in
+            ABRPlayer.requestRegisterCode(phoneNumber: phoneTf.text!.englishNumbers()! , completion: {[unowned self] (success, errorType) in
                 activity.stopAnimating()
                 activity.removeFromSuperview()
                 self.confirmPhoneBtn.setTitle(ABRAppConfig.buttonsTitles.loginSendCodeToPhoneButtonTitle, for: .normal)
                 self.confirmPhoneBtn.isEnabled = true
                 if success {
+                    self.timer()
                     self.innerScrollView.setContentOffset(CGPoint(x: self.loginView.bounds.size.width , y:0) , animated: true)
                     self.codeTf.becomeFirstResponder()
                 } else {
-                    self.loginView.showOverlayError(errorType!)
-                    
+                    if ABRAppConfig.loginHasBuiltinErrorMessages {
+                       self.loginView.showOverlayError(errorType!)
+                    }
+                    self.delegate?.errorOccured!(errorType!)
                 }
             })
             
@@ -382,39 +405,58 @@ class ABRLoginViewController: UIViewController {
     }
     
     @objc private func verifyCodeAction() {
-        if (codeTf.text?.characters.count)! == 5 {
-            confirmCodeBtn.setTitle(nil, for: .normal)
-            confirmCodeBtn.isEnabled = false
-            let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
-            loginView.addSubview(activity)
-            loginView.bringSubview(toFront: activity)
-            activity.center = CGPoint(x: confirmCodeBtn.center.x - loginView.frame.size.width, y: confirmCodeBtn.center.y)
-            activity.startAnimating()
-            ABRPlayer.verifyRegisterCode(phoneNumber: phoneTf.text!, code: codeTf.text!, completion: { (success, player , errorType) in
-                activity.stopAnimating()
-                activity.removeFromSuperview()
-                self.confirmCodeBtn.setTitle(ABRAppConfig.buttonsTitles.loginConfirmCodeButtonTitle, for: .normal)
-                self.confirmCodeBtn.isEnabled = true
-                if success {
-                    self.view.endEditing(true)
-                    if self.isFullScreen {
-                        self.delegate?.userDidLogin(player!)
-                    } else {
-                        self.dismissAnimation {
-                            self.dismiss(animated: false, completion: nil)
+        if confirmCodeBtn.tag == 0 {
+            if (codeTf.text?.characters.count)! == 5 {
+                confirmCodeBtn.setTitle(nil, for: .normal)
+                confirmCodeBtn.isEnabled = false
+                let activity = UIActivityIndicatorView(activityIndicatorStyle: .white)
+                loginView.addSubview(activity)
+                loginView.bringSubview(toFront: activity)
+                activity.center = CGPoint(x: confirmCodeBtn.center.x - loginView.frame.size.width, y: confirmCodeBtn.center.y)
+                activity.startAnimating()
+                ABRPlayer.verifyRegisterCode(phoneNumber: phoneTf.text!, code: codeTf.text!, completion: { (success, player , errorType) in
+                    activity.stopAnimating()
+                    activity.removeFromSuperview()
+                    self.confirmCodeBtn.setTitle(ABRAppConfig.buttonsTitles.loginConfirmCodeButtonTitle, for: .normal)
+                    self.confirmCodeBtn.isEnabled = true
+                    if success {
+                        self.view.endEditing(true)
+                        if self.isFullScreen {
                             self.delegate?.userDidLogin(player!)
+                        } else {
+                            self.dismissAnimation {
+                                self.dismiss(animated: false, completion: nil)
+                                self.delegate?.userDidLogin(player!)
+                            }
                         }
+                        
+                    } else {
+                        if ABRAppConfig.loginHasBuiltinErrorMessages {
+                            self.loginView.showOverlayError(errorType!)
+                        }
+                        self.delegate?.errorOccured!(errorType!)
                     }
-                    
+                })
+                
+            } else {
+                print("code field's length is not 5")
+                confirmCodeBtn.shake()
+            }
+        } else {
+            ABRPlayer.resendRegisterCode(phoneNumber: phoneTf.text!.englishNumbers()!, completion: { (success, errorType) in
+                if success {
+                    self.confirmCodeBtn.tag = 0
+                    self.confirmCodeBtn.setTitle("ورود به حساب", for: .normal)
+                    self.timer()
                 } else {
-                    self.loginView.showOverlayError(errorType!)
+                    if ABRAppConfig.loginHasBuiltinErrorMessages {
+                        self.loginView.showOverlayError(errorType!)
+                    }
+                    self.delegate?.errorOccured!(errorType!)
                 }
             })
-            
-        } else {
-            print("code field's length is not 5")
-            confirmCodeBtn.shake()
         }
+        
     }
     
     @objc private func backToInputPhone() {
@@ -433,7 +475,23 @@ class ABRLoginViewController: UIViewController {
         }
     }
     
-    
+    //MARK: Timer
+    func timer() {
+        var timerCounter = 150
+        let mins = timerCounter / 60 == 0 ? "0" : "0\(timerCounter / 60)"
+        let secs = timerCounter % 60 < 10 ? "0\(timerCounter % 60)" : "\(timerCounter % 60)"
+        timerLabel.text = mins + " : " + secs
+        ABRTimer.countDownFrom(150, actionBlock: {(current) in
+            timerCounter -= 1
+            let mins = timerCounter / 60 == 0 ? "0" : "0\(timerCounter / 60)"
+            let secs = timerCounter % 60 < 10 ? "0\(timerCounter % 60)" : "\(timerCounter % 60)"
+            self.timerLabel.text = mins + " : " + secs
+        }, finished: {
+            self.timerLabel.text = ""
+            self.confirmCodeBtn.setTitle("ارسال مجدد کد", for: .normal)
+            self.confirmCodeBtn.tag = 1
+        })
+    }
 }
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,7 +63,7 @@
                             <rect key="frame" x="177" y="96" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
-                    <color key="backgroundColor" red="0.4631698132" green="0.81485348940000002" blue="0.2353205085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="nOz-G8-ZTq" firstAttribute="centerX" secondItem="r5M-Ct-lbh" secondAttribute="centerX" id="9J7-6z-K5q"/>
                         <constraint firstAttribute="trailing" secondItem="YLP-Dm-TPn" secondAttribute="trailing" constant="10" id="EEw-Dm-tFF"/>
@@ -91,10 +91,11 @@
             <connections>
                 <outlet property="avatarImageView" destination="nOz-G8-ZTq" id="kB9-Bh-MmO"/>
                 <outlet property="editButton" destination="YLP-Dm-TPn" id="a59-Kc-yfj"/>
+                <outlet property="headerContainer" destination="r5M-Ct-lbh" id="bMS-2P-cG3"/>
                 <outlet property="headerHeightConstraint" destination="jsw-N0-ZVS" id="UqG-oQ-yUf"/>
+                <outlet property="headerTitleLabel" destination="Ny2-uu-xLS" id="9QB-9q-jhZ"/>
                 <outlet property="loadActivity" destination="BWk-Sb-1hX" id="li2-s1-xKs"/>
-                <outlet property="logoutButton" destination="ReQ-94-00y" id="Fqj-QC-Vb1"/>
-                <outlet property="nameLabel" destination="Ny2-uu-xLS" id="9QB-9q-jhZ"/>
+                <outlet property="signoutButton" destination="ReQ-94-00y" id="Wgc-X3-kqd"/>
             </connections>
             <point key="canvasLocation" x="-59.5" y="283"/>
         </view>

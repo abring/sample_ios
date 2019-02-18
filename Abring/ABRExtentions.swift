@@ -2,7 +2,7 @@
 //  extentions.swift
 //  octopus
 //
-//  Created by Hosein on 2/16/1396 AP.
+//  Created by Hosein Abbaspour on 2/16/1396 AP.
 //  Copyright © 1396 AP Sanjaqak. All rights reserved.
 //
 
@@ -11,6 +11,7 @@ import UIKit
 
 
 extension UIViewController {
+    /// Abring login popup. It's UIViewController extension.
     public func presentLogin(style : ABRLoginViewStyle , delegate: UIViewController) {
         let loginVc = ABRLoginViewController()
         loginVc.style = style
@@ -19,17 +20,17 @@ extension UIViewController {
         self.present(loginVc, animated: false, completion: nil)
     }
     
+    /// Abring login page will be present if ABRPlayer.current() is nil.
     public func loginIfNeeded(storyBoard : String , rootIdentifier : String , backgroundColor : UIColor = .white , backgroundImage : UIImage? = nil) {
         if UserDefaults.standard.integer(forKey: "abinitial") == 0 {
-            
+            print("f")
 //            let loginVc = UIStoryboard(name: storyBoard, bundle: Bundle.main).instantiateViewController(withIdentifier: rootIdentifier) as! ABRFullScreenLoginViewController
-            let loginVc = ABRFullScreenLoginViewController()
+            let loginVc = ABRFullScreenLoginViewController(nibName: "ABRFSLogin", bundle: Bundle(for: ABRFullScreenLoginViewController.self))
             loginVc.backgroundColor = backgroundColor
             loginVc.backgroundImage = backgroundImage
 
             ABRUtils.topViewController?.present(loginVc, animated: false, completion: nil)
             
-//            present(loginVc, animated: false, completion: nil)
         }
     }
 }
@@ -69,9 +70,9 @@ extension UIView {
         case .invalidToken:
             label.text = "برای استفاده از این امکان باید حتما لاگین باشید"
         case .noConnection:
-            label.text = "به اینترنت متصل نیستید"
+            label.text = ABRAppConfig.loginErrorTexts.noConnection
         case .serverError:
-            label.text = "خطا در سرور"
+            label.text = ABRAppConfig.loginErrorTexts.serverError
         default:
             label.text = "مشکلی پیش آمد\nدوباره سعی کنید"
         }
@@ -124,12 +125,22 @@ extension UIColor {
 
 extension String {
     func englishNumbers() -> String? {
+        let oldCount = self.characters.count
         let formatter: NumberFormatter = NumberFormatter()
         formatter.locale = Locale(identifier: "EN")
-        let final = formatter.number(from: self)
         
-        if final != nil{
-            return "0\(final!)"
+        if let final = formatter.number(from: self) {
+            let newCount = "\(final)".characters.count
+            let differ = oldCount - newCount
+            if differ == 0 {
+                return "\(final)"
+            } else {
+                var outFinal = "\(final)"
+                for _ in 1...differ {
+                    outFinal = "0" + outFinal
+                }
+                return outFinal
+            }
         } else {
             return nil
         }

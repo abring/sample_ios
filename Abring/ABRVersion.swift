@@ -2,25 +2,37 @@
 //  ABVersion.swift
 //  Pouya
 //
-//  Created by Hosein on 4/28/1396 AP.
+//  Created by Hosein Abbaspour on 4/28/1396 AP.
 //  Copyright © 1396 AP AsemanLTD. All rights reserved.
 //
 
 import Foundation
 
+/**
+ Make an instance of this class from version in string format.
+ All the main operations like == != etc are supported.
+*/
 
 public struct ABRVersion : Equatable {
     
-    var versionString : String
-    var major : Int?
-    var mid : Int?
-    var minor : Int?
+    /// Version in string format.
+    public var versionString : String
+    
+    /// Major part of version. for example 2 in 2.3.4
+    public var major : Int?
+    
+    /// Middle part of version. for example 3 in 2.3.4
+    public var mid : Int?
+    
+    /// Minor part of version. for example 4 in 2.3.4
+    public var minor : Int?
 
     
     
     //MARK: init methods
     
-    init(_ version : String) {
+    /// Set your version in string as parameter like `1.1.2`
+    public init(_ version : String) {
         self.versionString = version
         
         let versionComponents = versionString.components(separatedBy: ".")
@@ -32,39 +44,36 @@ public struct ABRVersion : Equatable {
             minor = Int(versionComponents[2])
         }
     }
-    
-    // IMPORTANT
-    // READ THIS CAREFULLY
-    
-    
-    // Call below method for checking if there is any update available or not ,
-    // You must have a variable named 'update' in your app data in Abring Panel
-    // set update variable like this: 
-//    {
-//        "ios" : {
-//            "current" : "1.3" ,
-//            "force" : "1.2" ,
-//            "link" : "http://downloadUrl.com"
-//        }
-//    }
-    
-    // in above example current is the latest version of your app that is live now
-    // force is the minimum version that user can run your app
-    // link is the url for downloading your app, for example you can use appstore link
-    
-    
+
     
     //MARK: other methods
-    
+    /**
+     The main method for checking if there is new version of your app available.
+     ## Usage
+     You must have a variable named 'update' in your app data in your [Abring](http://abring.ir) Panel.
+     Set update variable like this:
+     {
+     ````
+     "ios" : {
+         "current" : "1.3" ,
+         "force" : "1.2" ,
+         "link" : "http://downloadUrl.com"
+         }
+     }
+     ````
+     In above example current is the latest version of your app that is live now.
+     Force is the minimum version that user can run your app.
+     Link is the url for downloading your app, for example you can use appstore link.
+    */
     public static func checkForUpdate() {
         ABRApp.get { (success, _ , app) in
             if success {
                 var vc : ABRNewVersionViewController!
-                if Bundle.main.path(forResource: "ABNewVersion", ofType: "nib") != nil {
+                if Bundle.main.path(forResource: "ABRNewVersion", ofType: "nib") != nil {
                     print("found xib main bundle")
-                    vc = ABRNewVersionViewController(nibName: "ABNewVersion", bundle: Bundle.main)
+                    vc = ABRNewVersionViewController(nibName: "ABRNewVersion", bundle: Bundle.main)
                 } else {
-                    vc = ABRNewVersionViewController(nibName: "ABNewVersion", bundle: Bundle.init(for: ABRNewVersionViewController.self))
+                    vc = ABRNewVersionViewController(nibName: "ABRNewVersion", bundle: Bundle.init(for: ABRNewVersionViewController.self))
                 }
                 vc.modalPresentationStyle = .overCurrentContext
                 vc.app = app

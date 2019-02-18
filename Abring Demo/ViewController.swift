@@ -9,10 +9,11 @@
 import UIKit
 import Abring
 
+
 class ViewController: UIViewController , ABRLoginDelegate {
 
     @IBOutlet weak var alertLabel: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,22 +21,33 @@ class ViewController: UIViewController , ABRLoginDelegate {
         alertLabel.alpha = 0
         loginIfNeeded(storyBoard: "Main", rootIdentifier: "root")
 
+//        ABRAnalytics.set("fd")
+        
+        
+        
+
     }
+    
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //
+        // Uncomment this to see what looks like if your app has a force update:
+        
 //        ABVersion.checkForUpdate()
         
-        print(ABRPlayer.current()?.name)
+        print(ABRPlayer.current()?.token)
+        
 
     }
 
     @IBAction func buttonPressed() {
-        presentLogin(style: .darken , delegate: self)
+        presentLogin(style: .lightBlur , delegate: self)
 
     }
-    
     
     
     //MARK: Login delegate methods :
@@ -49,6 +61,9 @@ class ViewController: UIViewController , ABRLoginDelegate {
         showAlert("کاربر صفحه را بست")
     }
 
+    func errorOccured(_ errorType: ABRErrorType) {
+        print(errorType)
+    }
     
     
     // Flash Alert

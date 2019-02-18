@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00C2EA13264118ADBA0B2FDF002B87EA /* Pods-Abring Demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D1C304D0F7D47ED7FC88DF47A8A919 /* Pods-Abring Demo-dummy.m */; };
 		1266A5BC36EB38DA1F6D4782207471FD /* ABRConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD1776FC349C52EFD7022540FB5340 /* ABRConfiguration.swift */; };
+		1631F4BC1FA4AAD000396AA9 /* ABRFSLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1631F4BB1FA4AAD000396AA9 /* ABRFSLogin.xib */; };
 		16C564E1BE5D312B3D6914B726D5F5E1 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7857033CB003F852F367D6BC6CA97425 /* NetworkReachabilityManager.swift */; };
 		26553BB8EB59F291B8479E1CDCA50781 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C7C311169F3CAF970644274FB0787A /* SwiftyJSON-dummy.m */; };
 		2969AC0D4899C99401618CC3E2D19367 /* Abring-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D7629DE2CB71E60E2CBB6066809EB88 /* Abring-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,6 +102,7 @@
 		003F0620667B1D1CE3A63A07911DA946 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		09922B86810418CDE6DD69710D5A9C17 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		0C6E04C2B770D33E90A7E43AD9A6DDF5 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		1631F4BB1FA4AAD000396AA9 /* ABRFSLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ABRFSLogin.xib; sourceTree = "<group>"; };
 		1634FA3E2F5577B752A2A95EF63B4B81 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
 		17C7C311169F3CAF970644274FB0787A /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
 		1885A1D05B2D945EF0F865637E8DED22 /* ABRNewVersion.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ABRNewVersion.xib; path = Abring/ABRNewVersion.xib; sourceTree = "<group>"; };
@@ -123,12 +125,12 @@
 		5DF6D6ACCC1048B6BAF5E8B9C57DF855 /* ABRProfileRowCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRProfileRowCell.swift; path = Abring/ABRProfileRowCell.swift; sourceTree = "<group>"; };
 		6197A3C8EE2D4A4799B11B1C193226E7 /* Abring-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Abring-dummy.m"; sourceTree = "<group>"; };
 		6805BB0582F405B2754488F877FC0FA9 /* AbringKit.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AbringKit.bundle; path = Abring/AbringKit.bundle; sourceTree = "<group>"; };
-		728B7CF6EE982C4E4B7A1EF19AFFAB47 /* Pods-Abring Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Abring Demo.modulemap"; sourceTree = "<group>"; };
+		728B7CF6EE982C4E4B7A1EF19AFFAB47 /* Pods-Abring Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Abring Demo.modulemap"; sourceTree = "<group>"; };
 		734C6572E49E24DDAF70F6910B2CAB22 /* ABRProfileHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRProfileHeader.swift; path = Abring/ABRProfileHeader.swift; sourceTree = "<group>"; };
 		7857033CB003F852F367D6BC6CA97425 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		797D9E94F1C1E2BCAB5E4D6A9EA6FCEF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7BD1D581B483AF8736F68B34656AEA1F /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		7CED55DE5A66522881FB882D17F03265 /* Abring.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Abring.modulemap; sourceTree = "<group>"; };
+		7BD1D581B483AF8736F68B34656AEA1F /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		7CED55DE5A66522881FB882D17F03265 /* Abring.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Abring.modulemap; sourceTree = "<group>"; };
 		7D7629DE2CB71E60E2CBB6066809EB88 /* Abring-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Abring-umbrella.h"; sourceTree = "<group>"; };
 		82FA0765C39F6C5484893335E9C0E6F6 /* ABRProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRProfileViewController.swift; path = Abring/ABRProfileViewController.swift; sourceTree = "<group>"; };
 		84F82C9F604E944E3A1ED9D8E21B6A4F /* ABRProfileHeader.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ABRProfileHeader.xib; path = Abring/ABRProfileHeader.xib; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		8D269ECF9876E91BF0A6BA88FFEA86A8 /* Abring-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Abring-prefix.pch"; sourceTree = "<group>"; };
 		8F03809326666A0674F21BBADB1BB09D /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
 		927159AC28B562B9F78B38834A07F0DA /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94276CF887593FC21A638F4E2F1F4A42 /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		955EA24CB559C0221B0064F2827E04C8 /* ABRVersion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRVersion.swift; path = Abring/ABRVersion.swift; sourceTree = "<group>"; };
 		969E4886415C4F0C18D6FB74C6A6B8AF /* ABRNetworkManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRNetworkManager.swift; path = Abring/ABRNetworkManager.swift; sourceTree = "<group>"; };
@@ -145,13 +147,13 @@
 		AECD1776FC349C52EFD7022540FB5340 /* ABRConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRConfiguration.swift; path = Abring/ABRConfiguration.swift; sourceTree = "<group>"; };
 		AF748B9E1848C5D6DD73C0C1A7A36AE2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B220648B163CD9B35F4DE596BD099EB2 /* ABRFullScreenLoginViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRFullScreenLoginViewController.swift; path = Abring/ABRFullScreenLoginViewController.swift; sourceTree = "<group>"; };
-		B8F51F252EA65B41001845EDF6FBBCE3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F51F252EA65B41001845EDF6FBBCE3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FF27EE86A4BDCE5E125D71021F1A6A /* ABRSwitchableButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRSwitchableButton.swift; path = Abring/ABRSwitchableButton.swift; sourceTree = "<group>"; };
 		BA5B8F6AE942BA3D7E8C0B8732349B67 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		C1CEEC29A4440A656532F506209F86F3 /* ABRAnalytics.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ABRAnalytics.swift; path = Abring/ABRAnalytics.swift; sourceTree = "<group>"; };
-		C20805BB8FC1D740A538816AD6F8B0ED /* Abring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Abring.framework; path = Abring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20805BB8FC1D740A538816AD6F8B0ED /* Abring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Abring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57542A837C5B77A7BB3FB13B37548A6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAA9A8A0C75F8156DBC98E1E1C292D34 /* Pods_Abring_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Abring_Demo.framework; path = "Pods-Abring Demo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAA9A8A0C75F8156DBC98E1E1C292D34 /* Pods_Abring_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abring_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF6FA20699EAC0AB72A507BB66B191F8 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		CF94ECA6AB033E0660505348B4E148DB /* Pods-Abring Demo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Abring Demo-resources.sh"; sourceTree = "<group>"; };
 		CFBFF681209D4E5030FF4116EFD41362 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -163,12 +165,12 @@
 		E42F49FBA20BC96954B56110A1FB0535 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
 		E8202EA65D7F9777D78833FBE8F42BF1 /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		EBD92AFA2C0AFB65E87F12839FF0C40D /* Pods-Abring Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Abring Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		EEF1DD17D00D8B108483FE2FEE2ED4DA /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		EEF1DD17D00D8B108483FE2FEE2ED4DA /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		F05B506A540FE042146EA8265DD35585 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
 		F26FB4343C43368E1D119B6871123AF1 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		F382C5721F36A8CF08DA36032E8FF2C1 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		F79A98DF5E9366A2557E91B458622DE7 /* Abring.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Abring.xcconfig; sourceTree = "<group>"; };
-		F92FAD661C6CD9D102E10BC3B7BC1B3A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F92FAD661C6CD9D102E10BC3B7BC1B3A /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC61F6341066AC51394924B7EA2CF193 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,7 +309,6 @@
 				CFBFF681209D4E5030FF4116EFD41362 /* SwiftyJSON.swift */,
 				F847E694BA44D7153C3E16A02FE345D4 /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -344,7 +345,6 @@
 				F382C5721F36A8CF08DA36032E8FF2C1 /* Validation.swift */,
 				75817F13FD582AA366F3A28BAEAFD135 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -356,6 +356,7 @@
 				AECD1776FC349C52EFD7022540FB5340 /* ABRConfiguration.swift */,
 				20EBBEE12F9FF730B0859A6917B952FF /* ABRExtentions.swift */,
 				B220648B163CD9B35F4DE596BD099EB2 /* ABRFullScreenLoginViewController.swift */,
+				1631F4BB1FA4AAD000396AA9 /* ABRFSLogin.xib */,
 				425E3AA81F59C3C123427A01256237AD /* ABRLoginViewController.swift */,
 				969E4886415C4F0C18D6FB74C6A6B8AF /* ABRNetworkManager.swift */,
 				1885A1D05B2D945EF0F865637E8DED22 /* ABRNewVersion.xib */,
@@ -553,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1631F4BC1FA4AAD000396AA9 /* ABRFSLogin.xib in Resources */,
 				6B0CC628DDBD1D9354512441743714F0 /* AbringKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

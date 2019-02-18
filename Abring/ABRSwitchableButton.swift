@@ -2,7 +2,7 @@
 //  ABSwitchableButton.swift
 //  Abring Demo
 //
-//  Created by Hosein on 5/15/1396 AP.
+//  Created by Hosein Abbaspour on 5/15/1396 AP.
 //  Copyright © 1396 AP AsemanLTD. All rights reserved.
 //
 

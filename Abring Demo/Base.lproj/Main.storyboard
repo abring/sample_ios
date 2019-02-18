@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Item-->
+        <!--ورود-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Abring_Demo" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,11 +57,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="8Le-vb-m3v">
+                                <rect key="frame" x="117.5" y="158.5" width="140" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="uej-dq-IaQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="v7J-8l-xN1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="SzF-88-um0" secondAttribute="trailing" constant="10" id="5F7-Pu-dgM"/>
+                            <constraint firstItem="8Le-vb-m3v" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-150" id="8fe-1C-EhA"/>
                             <constraint firstItem="ldG-Ca-GQW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EuK-cm-Jpl"/>
+                            <constraint firstItem="8Le-vb-m3v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pyz-0N-c72"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SzF-88-um0" secondAttribute="bottom" constant="25" id="QT4-eW-aHR"/>
                             <constraint firstItem="DI2-kf-8kW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ufe-f8-n87"/>
                             <constraint firstItem="SzF-88-um0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Xbd-8G-kE6"/>
@@ -71,7 +80,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DI2-kf-8kW" secondAttribute="bottom" id="pcX-UB-MAc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zaC-ig-a0w"/>
+                    <tabBarItem key="tabBarItem" title="ورود" image="enter" id="zaC-ig-a0w"/>
                     <connections>
                         <outlet property="alertLabel" destination="SzF-88-um0" id="y7m-WU-jQs"/>
                     </connections>
@@ -80,14 +89,14 @@
             </objects>
             <point key="canvasLocation" x="676" y="183.95802098950526"/>
         </scene>
-        <!--Item-->
+        <!--پروفایل-->
         <scene sceneID="2n2-vQ-uVV">
             <objects>
-                <tableViewController id="5Z5-ob-ROj" customClass="ABRProfileViewController" customModule="Abring" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pgc-zP-yji">
+                <tableViewController id="5Z5-ob-ROj" customClass="MyTableViewController" customModule="Abring_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pgc-zP-yji">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="text" value="mm"/>
                         </userDefinedRuntimeAttributes>
@@ -96,7 +105,12 @@
                             <outlet property="delegate" destination="5Z5-ob-ROj" id="rmJ-JZ-kfA"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="LhB-aJ-d7V"/>
+                    <tabBarItem key="tabBarItem" title="پروفایل" image="user_male" id="LhB-aJ-d7V"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="headerBackgroundColor">
+                            <color key="value" red="0.50491189956665039" green="0.80047041177749634" blue="0.92870861291885376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="skT-xV-rZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,7 +119,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="d3b-A7-MIV">
             <objects>
-                <tabBarController storyboardIdentifier="root" automaticallyAdjustsScrollViewInsets="NO" id="H7F-a8-hPo" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="H7F-a8-hPo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wls-rS-ev2">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -123,6 +137,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg" width="750" height="1334"/>
+        <image name="bg" width="2524" height="2524"/>
+        <image name="enter" width="30" height="30"/>
+        <image name="logo" width="1061" height="422"/>
+        <image name="user_male" width="30" height="30"/>
     </resources>
 </document>

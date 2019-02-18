@@ -13,6 +13,7 @@
 		16CD04C91F2C8463009BAEE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04C81F2C8463009BAEE4 /* Assets.xcassets */; };
 		16CD04CC1F2C8463009BAEE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */; };
 		16CD04E11F2C8925009BAEE4 /* WebYekan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */; };
+		16D8C0561F9DCE9A00FA7434 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D8C0551F9DCE9A00FA7434 /* MyTableViewController.swift */; };
 		D5EE3C0E855474E5202255CD /* Pods_Abring_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		16CD04CB1F2C8463009BAEE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16CD04CD1F2C8463009BAEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16CD04E01F2C8925009BAEE4 /* WebYekan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WebYekan.ttf; sourceTree = "<group>"; };
+		16D8C0551F9DCE9A00FA7434 /* MyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
 		3BE44CC17317EECDB1814E14 /* Pods_Abring_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Abring_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81CD7F73F5B65A2C2A1A6B5A /* Pods-Abring Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Abring Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Abring Demo/Pods-Abring Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			children = (
 				16CD04C11F2C8463009BAEE4 /* AppDelegate.swift */,
 				16CD04C31F2C8463009BAEE4 /* ViewController.swift */,
+				16D8C0551F9DCE9A00FA7434 /* MyTableViewController.swift */,
 				16CD04C51F2C8463009BAEE4 /* Main.storyboard */,
 				16CD04C81F2C8463009BAEE4 /* Assets.xcassets */,
 				16CD04CA1F2C8463009BAEE4 /* LaunchScreen.storyboard */,
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16CD04C41F2C8463009BAEE4 /* ViewController.swift in Sources */,
+				16D8C0561F9DCE9A00FA7434 /* MyTableViewController.swift in Sources */,
 				16CD04C21F2C8463009BAEE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

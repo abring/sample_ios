@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ABRAppConfig.name = "com.aseman.abringDemo"
         ABRAppConfig.font = UIFont(name: "WebYekan", size: 14)
         ABRAppConfig.tintColor = UIColor.orange
-        ABRAppConfig.playerIncludes = [.name , .mail , .sex]
+        ABRAppConfig.playerIncludes = [.name , .mail , .mail]
         
     
         

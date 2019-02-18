@@ -2,64 +2,147 @@
 //  ABProfileViewController.swift
 //  Abring Demo
 //
-//  Created by Hosein on 5/9/1396 AP.
+//  Created by Hosein Abbaspour on 5/9/1396 AP.
 //  Copyright © 1396 AP AsemanLTD. All rights reserved.
 //
 
 import UIKit
 
 
-public class ABRProfileViewController: UITableViewController , UITextFieldDelegate {
+open class ABRProfileViewController: UITableViewController , UITextFieldDelegate {
     
-    public var headerBackgroundColor = ABRAppConfig.tintColor
+    @IBInspectable public var headerBackgroundColor : UIColor = ABRAppConfig.tintColor
+    @IBInspectable public var cellBackgroundColor : UIColor? = nil
     
-    override public func viewDidLoad() {
+    public var header : ABRProfileHeader?
+    
+    var buttonIsAlreadyInitialized = false
+    
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        tableView = UITableView(frame: CGRect.zero , style: .grouped)
-        tableView.separatorColor = UIColor(white: 0.9, alpha: 1)
-        tableView.separatorInset = UIEdgeInsets.zero
+//        tableView = UITableView(frame: CGRect.zero , style: .grouped)
+//        tableView.separatorColor = UIColor(white: 0.9, alpha: 1)
+//        tableView.separatorInset = UIEdgeInsets.zero
         
+        if ABRPlayer.current() == nil {
+            
+        } else {
+            
+        }
+
         registerNibs()
-//        getUser()
         fillHeader()
-        
-    
-        
         
     }
 
     
-    //MARK: Table View Header
-    
-    func fillHeader() {
-        let header = tableView.tableHeaderView as? ABRProfileHeader
-        header?.nameLabel.text = ABRPlayer.current()?.mobile
-        header?.loadActivity.isHidden = false
-        header?.loadActivity.startAnimating()
-        header?.editButton.addTarget(self, action: #selector(editAction(_:)) , for: .touchUpInside)
-        
-        let pictureURL : URL?
-        if let avatar = ABRPlayer.current()?.avatarUrl {
-            pictureURL = URL(string: avatar)
-            if pictureURL != nil {
-                downloadImage(pictureURL!, completion: { (image) in
-                    DispatchQueue.main.async {
-                        header?.avatarImageView.image = image
-                        header?.loadActivity.stopAnimating()
-                    }
-                })
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if userIsLoggedIn() && buttonIsAlreadyInitialized {
+            for subview in tableView.subviews {
+                if subview.isKind(of: UIButton.self) {
+                    subview.removeFromSuperview()
+                }
             }
-            
+        }
+    }
+    @discardableResult
+    func userIsLoggedIn() -> Bool {
+        if ABRPlayer.current() == nil {
+            if buttonIsAlreadyInitialized {
+                return false
+            }
+            buttonIsAlreadyInitialized = true
+            let loginButton = UIButton(type: .system)
+            loginButton.frame = CGRect.init(x: (view.bounds.size.width - 160) / 2, y: (header?.frame.height ?? 40) + 80 , width: 160, height: 38)
+            loginButton.backgroundColor = UIColor(white: 0 , alpha: 0.02)
+            loginButton.setTitleColor(ABRAppConfig.tintColor, for: .normal)
+            if let font = ABRAppConfig.font {
+                loginButton.titleLabel?.font = font
+            }
+            loginButton.setTitle("ورود به حساب", for: .normal)
+            loginButton.clipsToBounds = true
+            loginButton.layer.cornerRadius = 19
+            loginButton.addTarget(self, action: #selector(userWantsToLogin), for: .touchUpInside)
+            tableView.addSubview(loginButton)
+            return false
         } else {
-            return
+            tableView.reloadData()
+            fillHeader()
+            return true
         }
     }
     
-    @objc func editAction(_ sender : ABRSwitchableButton?) {
+    @objc open func userWantsToLogin() {
+        
+    }
+    
+    //MARK: Table View Header
+    
+    func fillHeader() {
+        header = nil
+        header = tableView.tableHeaderView as? ABRProfileHeader
+        header?.headerContainer.backgroundColor = headerBackgroundColor
+        if let font = ABRAppConfig.font {
+            header?.headerTitleLabel.font = font
+        }
+        header?.headerTitleLabel.text = ABRPlayer.current() == nil ? "شما وارد حساب کاربری خود نشده‌اید" : ABRPlayer.current()?.mobile
+        header?.loadActivity.isHidden = false
+        header?.loadActivity.startAnimating()
+        if ABRPlayer.current() == nil {
+            header?.editButton.isHidden = true
+            header?.signoutButton.isHidden = true
+            header?.loadActivity.stopAnimating()
+        } else {
+            header?.editButton.addTarget(self, action: #selector(editAction(_:)) , for: .touchUpInside)
+            header?.signoutButton.addTarget(self, action: #selector(signoutAction(_:)), for: .touchUpInside)
+            let pictureURL : URL?
+            if let avatar = ABRPlayer.current()?.avatarUrl {
+                pictureURL = URL(string: avatar)
+                if pictureURL != nil {
+                    downloadImage(pictureURL!, completion: { (image) in
+                        DispatchQueue.main.async {
+                            self.header?.avatarImageView.image = image
+                            self.header?.loadActivity.stopAnimating()
+                        }
+                    })
+                }
+                
+            } else {
+                return
+            }
+        }
+        
+        
+        
+    }
+    
+    @objc open func editAction(_ sender : ABRSwitchableButton?) {
         tableView.reloadData()
+    }
+    
+    @objc open func signoutAction(_ sender : UIButton?) {
+        ABRPlayer.logout { (success, errorType) in
+            if success {
+                self.fillHeader()
+                self.tableView.reloadData()
+                self.userDidLoggedOut()
+            } else {
+                self.userTriedToLoggedOutWith(error: errorType!)
+            }
+        }
+    }
+    
+    /// If you did ovverride this don't remember to call `super.userDidLoggedOut()`.
+    open func userDidLoggedOut() {
+        userIsLoggedIn()
+    }
+    
+    open func userTriedToLoggedOutWith(error : ABRErrorType) {
+        
     }
     
     func downloadImage(_ path : URL , completion : @escaping (_ image : UIImage?) -> Void) {
@@ -121,15 +204,19 @@ public class ABRProfileViewController: UITableViewController , UITextFieldDelega
     
   
     //MARK: Table View DataSource
-    override public func numberOfSections(in tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ABRAppConfig.playerIncludes?.count ?? 0
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if ABRPlayer.current() == nil {
+            return 0
+        } else {
+            return ABRAppConfig.playerIncludes?.count ?? 0
+        }
     }
     
-    override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "profileRow", for: indexPath) as! ABRProfileRowCell
         cell.selectionStyle = .none
         let info = ABRAppConfig.playerIncludes?[indexPath.row]
@@ -137,7 +224,9 @@ public class ABRProfileViewController: UITableViewController , UITextFieldDelega
         cell.valueTextField.text = ABRPlayer.current()?.passProperty(key: info!)
         cell.valueTextField.returnKeyType = .done
         cell.valueTextField.delegate = self
-        
+        if let color = cellBackgroundColor {
+            cell.backgroundColor = color
+        }
         
         if ((tableView.tableHeaderView as! ABRProfileHeader).editButton as! ABRSwitchableButton).isOn {
             cell.valueTextField.isUserInteractionEnabled = true
@@ -150,7 +239,7 @@ public class ABRProfileViewController: UITableViewController , UITextFieldDelega
     
     //MARK: Table View Delegate
     
-    override public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let header = tableView.tableHeaderView as? ABRProfileHeader
         header?.headerHeightConstraint.constant = scrollView.contentOffset.y < 0 ?  -scrollView.contentOffset.y + 200 : 200
     }
